@@ -869,11 +869,28 @@
     /* ───── FOOTER ───── */
     .footer {
       border-top: 1px solid var(--border);
-      padding: 3rem 0;
+      padding: 3.5rem 0;
       text-align: center;
-      background: linear-gradient(180deg, rgba(16,20,32,0.88) 0%, rgba(14,18,28,1) 100%);
+      background: linear-gradient(180deg, rgba(14,18,28,0.95) 0%, rgba(10,14,22,1) 100%);
       position: relative;
       overflow: hidden;
+    }
+    .footer::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('images/bmw-m3-silver.jpg') center 40%/cover no-repeat;
+      opacity: 0.08;
+      filter: blur(2px);
+    }
+    .footer::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(28,168,229,0.06) 0%, transparent 60%);
+      top: 30%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
     .footer > .container { position: relative; z-index: 1; }
     .footer-logo {
