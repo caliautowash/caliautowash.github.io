@@ -67,16 +67,16 @@
       --cyan-glow: rgba(28, 168, 229, 0.3);
       --cyan-subtle: rgba(28, 168, 229, 0.08);
 
-      --bg: #050508;
-      --bg-raised: #0c0d12;
-      --bg-card: rgba(14, 15, 22, 0.7);
-      --bg-glass: rgba(14, 15, 22, 0.55);
-      --border: rgba(255, 255, 255, 0.06);
-      --border-hover: rgba(28, 168, 229, 0.25);
+      --bg: #0a0c14;
+      --bg-raised: #10131c;
+      --bg-card: rgba(16, 19, 30, 0.75);
+      --bg-glass: rgba(16, 19, 30, 0.55);
+      --border: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(28, 168, 229, 0.3);
 
-      --text: #e8eaed;
-      --text-muted: #6b7280;
-      --text-dim: #4b5263;
+      --text: #ebedf1;
+      --text-muted: #8b93a5;
+      --text-dim: #636d82;
       --white: #ffffff;
 
       --radius: 16px;
@@ -166,15 +166,15 @@
     /* ───── HEADER ───── */
     .header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(5, 5, 8, 0.6);
+      background: rgba(10, 12, 20, 0.55);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s, box-shadow 0.3s;
     }
     .header.scrolled {
-      background: rgba(5, 5, 8, 0.9);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+      background: rgba(10, 12, 20, 0.88);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
     }
     .header-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -242,11 +242,11 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        linear-gradient(135deg, rgba(5,5,8,0.88) 0%, rgba(5,5,8,0.65) 40%, rgba(5,5,8,0.85) 100%);
+        linear-gradient(135deg, rgba(10,12,20,0.78) 0%, rgba(10,12,20,0.45) 40%, rgba(10,12,20,0.75) 100%);
     }
     .hero-bg::after {
       content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; height: 250px;
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
       background: linear-gradient(to top, var(--bg), transparent);
     }
 
@@ -443,7 +443,7 @@
       content: '';
       position: absolute; inset: 0;
       background: url('images/camry-detail.jpg') center top/cover no-repeat;
-      opacity: 0.04;
+      opacity: 0.08;
       filter: blur(2px);
     }
 
@@ -569,13 +569,13 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(8,12,20,0.97) 0%, rgba(5,5,8,0.92) 50%, rgba(8,12,20,0.97) 100%);
+        linear-gradient(180deg, rgba(10,14,24,0.92) 0%, rgba(10,12,20,0.85) 50%, rgba(10,14,24,0.92) 100%);
     }
     .why-us::before {
       content: '';
       position: absolute; inset: 0;
       background: url('images/civic-clean.jpg') center/cover no-repeat;
-      opacity: 0.06;
+      opacity: 0.1;
       filter: blur(3px);
     }
     .why-us::after {
@@ -648,13 +648,13 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(5,5,8,0.95) 0%, rgba(8,12,20,0.90) 50%, rgba(5,5,8,0.95) 100%);
+        linear-gradient(180deg, rgba(10,12,20,0.90) 0%, rgba(12,16,26,0.84) 50%, rgba(10,12,20,0.90) 100%);
     }
     .recent-work::before {
       content: '';
       position: absolute; inset: 0;
       background: url('images/604046414_17919508482232766_1651001897021971849_n.jpg') center/cover no-repeat;
-      opacity: 0.06;
+      opacity: 0.1;
       filter: blur(3px);
     }
     .recent-work > .container { position: relative; z-index: 1; }
@@ -777,13 +777,13 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(5,5,8,0.95) 0%, rgba(10,14,22,0.92) 50%, rgba(5,5,8,0.97) 100%);
+        linear-gradient(180deg, rgba(10,12,20,0.90) 0%, rgba(12,16,26,0.86) 50%, rgba(10,12,20,0.92) 100%);
     }
     .contact::before {
       content: '';
       position: absolute; inset: 0;
       background: url('images/tacoma-clean.jpg') center/cover no-repeat;
-      opacity: 0.05;
+      opacity: 0.1;
       filter: blur(4px);
     }
 
@@ -868,7 +868,7 @@
       border-top: 1px solid var(--border);
       padding: 3rem 0;
       text-align: center;
-      background: linear-gradient(180deg, rgba(8,12,20,0.95) 0%, rgba(5,5,8,1) 100%);
+      background: linear-gradient(180deg, rgba(12,16,26,0.92) 0%, rgba(10,12,20,1) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -901,7 +901,7 @@
       display: none;
       position: fixed; bottom: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(5, 5, 8, 0.92);
+      background: rgba(10, 12, 20, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-top: 1px solid var(--border);
@@ -922,7 +922,7 @@
     .mobile-nav {
       display: none;
       position: fixed; inset: 0; z-index: 99;
-      background: rgba(5, 5, 8, 0.97);
+      background: rgba(10, 12, 20, 0.96);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
       flex-direction: column;
