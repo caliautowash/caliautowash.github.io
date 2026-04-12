@@ -1242,8 +1242,16 @@
     /* ───── BEFORE & AFTER ───── */
     .before-after {
       position: relative; overflow: hidden;
-      background: var(--bg);
+      background: linear-gradient(180deg, rgba(14,18,28,0.78) 0%, rgba(16,20,32,0.68) 50%, rgba(14,18,28,0.78) 100%);
     }
+    .before-after::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('images/honda-pilot-clean.jpg') center/cover no-repeat;
+      opacity: 0.18;
+      filter: blur(1px);
+    }
+    .before-after > .container { position: relative; z-index: 1; }
     .ba-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1365,8 +1373,16 @@
     /* ───── FAQ ───── */
     .faq-section {
       position: relative; overflow: hidden;
-      background: var(--bg);
+      background: linear-gradient(180deg, rgba(14,18,28,0.8) 0%, rgba(16,20,32,0.7) 50%, rgba(14,18,28,0.8) 100%);
     }
+    .faq-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('images/infiniti-q50-detail.jpg') center/cover no-repeat;
+      opacity: 0.18;
+      filter: blur(1px);
+    }
+    .faq-section > .container { position: relative; z-index: 1; }
     .faq-grid {
       max-width: 740px;
       margin: 0 auto;
