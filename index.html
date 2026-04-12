@@ -1083,14 +1083,25 @@
       .booking-iframe-wrap iframe { height: 480px; }
       .contact-booking { padding: 1.5rem 1.25rem 1rem; }
 
-      /* Fix background images getting squished on tall mobile sections */
+      /* Fix header text bleed-through on mobile */
+      .header {
+        background: rgba(14, 17, 24, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .header.scrolled {
+        background: rgba(14, 17, 24, 0.97);
+      }
+
+      /* Fix background images on mobile — fill width, don't stretch vertically */
       .pricing::after,
       .why-us::before,
       .recent-work::before,
       .contact::before,
       .how-it-works .section-bg {
-        background-size: auto 100vh;
-        background-position: center center;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: repeat-y;
       }
 
       /* Sticky CTA spacing */
