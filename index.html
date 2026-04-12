@@ -846,7 +846,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2.5rem;
+      padding: 1.75rem 1.75rem 1.25rem;
       text-align: center;
       backdrop-filter: blur(12px);
       position: relative;
@@ -859,15 +859,37 @@
     }
     .contact-booking h3 {
       font-family: var(--font-display);
-      font-size: 1.3rem; font-weight: 700;
-      margin-bottom: 0.6rem;
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: 0.4rem;
       color: var(--white);
     }
     .contact-booking p {
-      color: var(--text-muted); font-size: 0.92rem;
-      margin-bottom: 2rem;
+      color: var(--text-muted); font-size: 0.88rem;
+      margin-bottom: 1.25rem;
       line-height: 1.65;
     }
+    .booking-iframe-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 1rem;
+    }
+    .booking-iframe-wrap iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+    .booking-fallback {
+      margin-top: 0.5rem;
+    }
+    .booking-fallback a {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .booking-fallback a:hover { color: var(--cyan-bright); }
 
     /* ───── FOOTER ───── */
     .footer {
@@ -1506,11 +1528,19 @@
 
         <div class="contact-booking reveal stagger-2">
           <h3>Schedule Your Detail</h3>
-          <p>Pick a time that works for you. We'll come to your location.</p>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Book on Square
-          </a>
+          <p>Pick a service and time — book right here without leaving the page.</p>
+          <div class="booking-iframe-wrap">
+            <iframe
+              src="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services"
+              title="Book an appointment with Cali Auto Wash"
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="booking-fallback">
+            <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener">
+              Open booking in new tab &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>
