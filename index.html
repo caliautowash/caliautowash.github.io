@@ -966,7 +966,7 @@
     .footer-logo {
       height: 130px; width: auto;
       margin: 0 auto 1.25rem;
-      opacity: 0.6;
+      opacity: 0.8;
       transition: opacity 0.3s;
     }
     .footer-logo:hover { opacity: 1; }
@@ -1307,7 +1307,12 @@
     }
     @media (max-width: 768px) {
       .ba-grid { grid-template-columns: 1fr; }
-      .ba-images img { height: 200px; }
+      .ba-images { grid-template-columns: 1fr 1fr; }
+      .ba-images img { height: 160px; }
+      .ba-caption { font-size: 0.78rem; padding: 0.65rem 0.75rem; }
+      .ba-label { font-size: 0.58rem; padding: 0.2rem 0.5rem; top: 0.5rem; }
+      .ba-label-before { left: 0.5rem; }
+      .ba-label-after { right: 0.5rem; }
     }
 
     /* ───── HERO TRUST BADGES ───── */
@@ -1449,6 +1454,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#why">Why Us</a>
         <a href="#work">Our Work</a>
+        <a href="#results">Results</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1473,6 +1479,8 @@
     <a href="#pricing" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Pricing</a>
     <a href="#why" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Why Us</a>
     <a href="#work" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Our Work</a>
+    <a href="#results" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Results</a>
+    <a href="#faq" onclick="document.querySelector('.mobile-nav').classList.remove('active')">FAQ</a>
     <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Contact</a>
     <a href="tel:+12099882892">Call (209) 988-2892</a>
     <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a>
@@ -1802,7 +1810,7 @@
       <div class="section-center reveal">
         <p class="section-label">Real Results</p>
         <h2 class="section-title">Before &amp; After</h2>
-        <p class="section-sub">See the difference a professional detail makes. Swipe to compare.</p>
+        <p class="section-sub">See the difference a professional detail makes. Real cars, real results.</p>
       </div>
       <div class="ba-grid">
         <div class="ba-pair reveal stagger-1">
@@ -2003,6 +2011,8 @@
         <a href="#pricing">Pricing</a>
         <a href="#why">Why Us</a>
         <a href="#work">Our Work</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
         <a href="https://www.instagram.com/caliautowash" target="_blank" rel="noopener">Instagram</a>
       </div>
