@@ -146,8 +146,8 @@
       transition: transform 0.6s var(--ease-out);
     }
     .btn:hover::before { transform: translateX(100%); }
-    .btn:hover { transform: translateY(-2px); }
-    .btn:active { transform: translateY(0) scale(0.98); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.1s; }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
@@ -420,15 +420,64 @@
     .section-center .section-label::before { display: none; }
     .section-center .section-sub { margin-left: auto; margin-right: auto; }
 
-    /* ───── REVEAL ANIMATION ───── */
+    /* ───── REVEAL ANIMATIONS ───── */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1) translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ───── HERO ENTRANCE ───── */
+    .hero-badge {
+      animation: heroBadgeIn 0.8s var(--ease-out) 0.2s both;
+    }
+    .hero h1 {
+      animation: heroFadeUp 0.9s var(--ease-out) 0.4s both;
+    }
+    .hero-sub {
+      animation: heroFadeUp 0.9s var(--ease-out) 0.6s both;
+    }
+    .hero-buttons {
+      animation: heroFadeUp 0.9s var(--ease-out) 0.8s both;
+    }
+    @keyframes heroBadgeIn {
+      0% { opacity: 0; transform: translateY(20px) scale(0.9); filter: blur(4px); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(3px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
     /* ───── PRICING ───── */
@@ -487,8 +536,8 @@
     }
     .price-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(28,168,229,0.05);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 50px rgba(28,168,229,0.08);
     }
     .price-card:hover::after { opacity: 1; }
 
@@ -622,8 +671,8 @@
     }
     .why-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(28,168,229,0.06);
     }
     .why-card:hover::after { opacity: 1; }
 
@@ -734,16 +783,16 @@
     }
     .work-item:hover {
       border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(28,168,229,0.05);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(28,168,229,0.06);
     }
     .work-item img {
       width: 100%;
       height: 420px;
       object-fit: cover;
-      transition: transform 0.5s var(--ease-out);
+      transition: transform 0.6s var(--ease-out), filter 0.6s var(--ease-out);
     }
-    .work-item:hover img { transform: scale(1.03); }
+    .work-item:hover img { transform: scale(1.05); filter: brightness(1.08); }
     .work-item-overlay {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 2rem;
@@ -1057,9 +1106,9 @@
       transition: opacity 0.4s;
     }
     .step-card:hover {
-      border-color: rgba(28, 168, 229, 0.3);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(28, 168, 229, 0.08);
+      border-color: rgba(28, 168, 229, 0.35);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(28, 168, 229, 0.1);
     }
     .step-card:hover::before { opacity: 1; }
 
@@ -1106,13 +1155,41 @@
     }
 
     /* ───── STAGGER DELAYS ───── */
-    .stagger-1 { transition-delay: 0.05s; }
-    .stagger-2 { transition-delay: 0.1s; }
-    .stagger-3 { transition-delay: 0.15s; }
-    .stagger-4 { transition-delay: 0.2s; }
-    .stagger-5 { transition-delay: 0.25s; }
-    .stagger-6 { transition-delay: 0.3s; }
-    .stagger-7 { transition-delay: 0.35s; }
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+    .stagger-5 { transition-delay: 0.4s; }
+    .stagger-6 { transition-delay: 0.48s; }
+    .stagger-7 { transition-delay: 0.56s; }
+
+    /* ───── SECTION TITLE REVEAL ───── */
+    .section-label {
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .section-title {
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+
+    /* ───── SMOOTH IMAGE SHIMMER ON LOAD ───── */
+    @keyframes imageShimmer {
+      0% { opacity: 0; transform: scale(1.04); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .work-item img {
+      animation: imageShimmer 0.8s var(--ease-out) both;
+    }
+
+    /* ───── FOOTER FADE-IN ───── */
+    .footer-logo {
+      animation: heroFadeUp 0.8s var(--ease-out) 0.1s both;
+    }
+    .footer-links {
+      animation: heroFadeUp 0.7s var(--ease-out) 0.25s both;
+    }
+    .footer p {
+      animation: heroFadeUp 0.7s var(--ease-out) 0.35s both;
+    }
   </style>
 </head>
 
@@ -1474,7 +1551,7 @@
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info reveal stagger-1">
+        <div class="contact-info reveal-left stagger-1">
           <h3>Contact Info</h3>
 
           <a href="tel:+12099882892" class="contact-link">
@@ -1528,7 +1605,7 @@
           </div>
         </div>
 
-        <div class="contact-booking reveal stagger-2">
+        <div class="contact-booking reveal-right stagger-2">
           <h3>Schedule Your Detail</h3>
           <p>Pick a service and time — book right here without leaving the page.</p>
           <div class="booking-iframe-wrap">
@@ -1575,35 +1652,46 @@
   <script>
     // Header scroll effect
     const header = document.getElementById('header');
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    // Scroll-triggered reveals via IntersectionObserver
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    // Subtle hero parallax — background moves slower than scroll
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < window.innerHeight * 1.2) {
+          heroBg.style.transform = 'translateY(' + (y * 0.3) + 'px) scale(1.05)';
+        }
+      }, { passive: true });
+    }
+
+    // Scroll-triggered reveals — supports .reveal, .reveal-scale, .reveal-left, .reveal-right
+    const allReveals = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    allReveals.forEach(el => revealObserver.observe(el));
 
     // Floating particles
     (function createParticles() {
       const container = document.getElementById('particles');
       if (!container) return;
-      const count = window.innerWidth < 768 ? 12 : 24;
+      const count = window.innerWidth < 768 ? 14 : 28;
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (6 + Math.random() * 8) + 's';
-        p.style.animationDelay = (Math.random() * 10) + 's';
-        p.style.width = p.style.height = (1.5 + Math.random() * 2.5) + 'px';
+        p.style.animationDuration = (6 + Math.random() * 10) + 's';
+        p.style.animationDelay = (Math.random() * 12) + 's';
+        const size = (1.5 + Math.random() * 3);
+        p.style.width = p.style.height = size + 'px';
         p.style.opacity = 0;
         container.appendChild(p);
       }
