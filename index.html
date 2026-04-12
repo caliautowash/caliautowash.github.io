@@ -1093,15 +1093,17 @@
         background: rgba(14, 17, 24, 0.97);
       }
 
-      /* Fix background images on mobile — fill width, don't stretch vertically */
+      /* Fix background images on mobile — wider view, brighter, less blur */
       .pricing::after,
       .why-us::before,
       .recent-work::before,
       .contact::before,
       .how-it-works .section-bg {
-        background-size: cover;
+        background-size: 200% auto;
         background-position: center top;
-        background-repeat: repeat-y;
+        background-repeat: no-repeat;
+        opacity: 0.22;
+        filter: blur(0px);
       }
 
       /* Sticky CTA spacing */
