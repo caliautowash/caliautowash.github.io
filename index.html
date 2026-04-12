@@ -1093,40 +1093,16 @@
         background: rgba(14, 17, 24, 0.97);
       }
 
-      /* Mobile backgrounds — two stacked images per section, no repeat, crisp */
+      /* Mobile backgrounds — cover fills everything, no blur, brighter */
       .pricing::after,
       .why-us::before,
       .recent-work::before,
       .contact::before,
       .how-it-works .section-bg {
-        opacity: 0.22;
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.2;
         filter: none;
-      }
-      .pricing::after {
-        background:
-          url('images/camry-detail.jpg') center top / 100% auto no-repeat,
-          url('images/honda-pilot-clean.jpg') center center / 100% auto no-repeat,
-          url('images/bmw-m3-silver.jpg') center bottom / 100% auto no-repeat;
-      }
-      .why-us::before {
-        background:
-          url('images/civic-clean.jpg') center top / 100% auto no-repeat,
-          url('images/infiniti-q50-detail.jpg') center bottom / 100% auto no-repeat;
-      }
-      .recent-work::before {
-        background:
-          url('images/604046414_17919508482232766_1651001897021971849_n.jpg') center top / 100% auto no-repeat,
-          url('images/brz-matte-purple.jpg') center bottom / 100% auto no-repeat;
-      }
-      .contact::before {
-        background:
-          url('images/tacoma-clean.jpg') center top / 100% auto no-repeat,
-          url('images/m3-mean-front.jpg') center bottom / 100% auto no-repeat;
-      }
-      .how-it-works .section-bg {
-        background:
-          url('images/659322185_17934280302232766_3357844027542217812_n.jpg') center top / 100% auto no-repeat,
-          url('images/civic-white-blkwheels.jpg') center bottom / 100% auto no-repeat;
       }
 
       /* Sticky CTA spacing */
