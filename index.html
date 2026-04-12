@@ -1093,15 +1093,15 @@
         background: rgba(14, 17, 24, 0.97);
       }
 
-      /* Fix background images on mobile — wider view, brighter, less blur */
+      /* Fix background images on mobile — fill width, tile down, crisp */
       .pricing::after,
       .why-us::before,
       .recent-work::before,
       .contact::before,
       .how-it-works .section-bg {
-        background-size: 200% auto;
+        background-size: 100% auto;
         background-position: center top;
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         opacity: 0.22;
         filter: blur(0px);
       }
