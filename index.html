@@ -133,7 +133,7 @@
       letter-spacing: 0.01em;
       border-radius: var(--radius-pill);
       border: none; cursor: pointer;
-      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-out), border-color 0.3s, color 0.3s, background 0.3s;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s, border-color 0.3s, color 0.3s, background 0.3s;
       text-decoration: none;
       position: relative;
       overflow: hidden;
@@ -146,8 +146,8 @@
       transition: transform 0.7s var(--ease-out);
     }
     .btn:hover::before { transform: translateX(100%); }
-    .btn:hover { transform: translateY(-3px) scale(1.03); }
-    .btn:active { transform: translateY(0) scale(0.96); transition-duration: 0.12s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.1s; }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
@@ -155,8 +155,7 @@
       box-shadow: 0 4px 24px var(--cyan-glow), 0 1px 3px rgba(0,0,0,0.3);
     }
     .btn-primary:hover {
-      box-shadow: 0 12px 40px rgba(28,168,229,0.45), 0 4px 12px rgba(0,0,0,0.3);
-      filter: brightness(1.1);
+      box-shadow: 0 10px 35px rgba(28,168,229,0.4), 0 4px 10px rgba(0,0,0,0.3);
     }
     .btn-outline {
       background: var(--bg-glass);
@@ -167,8 +166,7 @@
     .btn-outline:hover {
       border-color: var(--cyan);
       color: var(--cyan-bright);
-      background: rgba(28,168,229,0.08);
-      box-shadow: 0 8px 30px rgba(28,168,229,0.12), 0 0 20px rgba(28,168,229,0.06);
+      background: rgba(28,168,229,0.06);
     }
     .btn-small { padding: 0.7rem 1.4rem; font-size: 0.82rem; }
 
@@ -206,8 +204,7 @@
       border-radius: var(--radius-sm);
       transition: color 0.25s, background 0.25s;
     }
-    .nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
-    .nav a { transition: color 0.25s, background 0.25s, transform 0.3s var(--ease-spring); }
+    .nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
 
     .header-cta { display: flex; align-items: center; gap: 1rem; }
     .header-phone {
@@ -523,40 +520,20 @@
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(12px);
-      transition: border-color 0.35s var(--ease-out), transform 0.45s var(--ease-spring), box-shadow 0.4s var(--ease-out), background 0.4s;
-    }
-    /* Reflective sheen on hover */
-    .price-card::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        115deg,
-        transparent 15%,
-        rgba(28,168,229,0.04) 35%,
-        rgba(28,168,229,0.08) 50%,
-        rgba(28,168,229,0.04) 65%,
-        transparent 85%
-      );
-      opacity: 0;
-      transform: translateX(-30%);
-      transition: opacity 0.5s, transform 0.7s var(--ease-out);
-      pointer-events: none;
+      will-change: transform;
+      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
     }
     .price-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.35), 0 0 50px rgba(28,168,229,0.1);
-      background: rgba(22, 28, 48, 0.82);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.3), 0 0 40px rgba(28,168,229,0.08);
     }
-    .price-card:hover::after { opacity: 1; transform: translateX(30%); }
 
     .price-card.featured {
-      border-color: rgba(28,168,229,0.35);
-      background: linear-gradient(160deg, rgba(28,168,229,0.06) 0%, var(--bg-card) 40%);
-      box-shadow: 0 0 60px rgba(28,168,229,0.06);
+      border-color: rgba(28,168,229,0.25);
+      background: linear-gradient(160deg, rgba(28,168,229,0.08) 0%, var(--bg-card) 50%);
     }
-    .price-card.featured::before {
-      content: 'BEST VALUE';
+    .price-card.featured .price-card-badge {
       position: absolute; top: 0; right: 0;
       background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
       color: var(--white);
@@ -565,6 +542,7 @@
       padding: 0.4rem 1.2rem 0.4rem 1.4rem;
       border-radius: 0 var(--radius) 0 var(--radius);
       letter-spacing: 0.08em;
+      z-index: 2;
     }
 
     .price-card-name {
@@ -667,7 +645,8 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       backdrop-filter: blur(8px);
-      transition: border-color 0.35s var(--ease-out), transform 0.45s var(--ease-spring), box-shadow 0.4s var(--ease-out), background 0.4s;
+      will-change: transform;
+      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
       position: relative;
       overflow: hidden;
     }
@@ -677,13 +656,12 @@
       background: linear-gradient(90deg, var(--cyan), var(--cyan-bright), transparent);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 0.5s var(--ease-out);
+      transition: transform 0.45s var(--ease-out);
     }
     .why-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.3), 0 0 35px rgba(28,168,229,0.08);
-      background: rgba(22, 28, 48, 0.82);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(28,168,229,0.06);
     }
     .why-card:hover::after { transform: scaleX(1); }
 
@@ -694,13 +672,12 @@
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.5rem;
-      transition: background 0.3s, transform 0.4s var(--ease-spring), box-shadow 0.4s, border-color 0.3s;
+      transition: background 0.3s, transform 0.35s var(--ease-out), box-shadow 0.3s;
     }
     .why-card:hover .why-icon {
-      background: rgba(28,168,229,0.18);
-      transform: scale(1.12) rotate(-3deg);
-      box-shadow: 0 0 20px rgba(28,168,229,0.15);
-      border-color: rgba(28,168,229,0.3);
+      background: rgba(28,168,229,0.16);
+      transform: scale(1.1);
+      box-shadow: 0 0 18px rgba(28,168,229,0.12);
     }
     .why-card h3 {
       font-family: var(--font-display);
@@ -792,27 +769,29 @@
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid var(--border);
-      transition: border-color 0.35s, transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-out);
+      will-change: transform;
+      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
     }
     .work-item:hover {
       border-color: var(--border-hover);
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.4), 0 0 50px rgba(28,168,229,0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.35), 0 0 40px rgba(28,168,229,0.06);
     }
     .work-item img {
       width: 100%;
       height: 420px;
       object-fit: cover;
-      transition: transform 0.7s var(--ease-out), filter 0.5s var(--ease-out);
+      will-change: transform;
+      transition: transform 0.5s var(--ease-out);
     }
-    .work-item:hover img { transform: scale(1.06); filter: brightness(1.1) saturate(1.05); }
+    .work-item:hover img { transform: scale(1.04); }
     .work-item-overlay {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 2rem;
-      background: linear-gradient(to top, rgba(14,17,24,0.9) 0%, rgba(14,17,24,0.4) 60%, transparent 100%);
-      transform: translateY(8px);
-      opacity: 0.85;
-      transition: transform 0.5s var(--ease-out), opacity 0.4s;
+      background: linear-gradient(to top, rgba(14,17,24,0.88) 0%, rgba(14,17,24,0.35) 60%, transparent 100%);
+      transform: translateY(6px);
+      opacity: 0.9;
+      transition: transform 0.4s var(--ease-out), opacity 0.3s;
     }
     .work-item:hover .work-item-overlay {
       transform: translateY(0);
@@ -886,7 +865,6 @@
     }
     .contact-link:hover {
       border-bottom-color: var(--border-hover);
-      padding-left: 0.5rem;
     }
     .contact-link:hover .contact-link-value { color: var(--cyan-bright); }
     .contact-link-icon {
@@ -899,10 +877,8 @@
       transition: background 0.3s, border-color 0.3s, transform 0.4s var(--ease-spring), box-shadow 0.3s;
     }
     .contact-link:hover .contact-link-icon {
-      background: rgba(28,168,229,0.15);
-      border-color: rgba(28,168,229,0.3);
-      transform: scale(1.08);
-      box-shadow: 0 0 16px rgba(28,168,229,0.12);
+      background: rgba(28,168,229,0.14);
+      border-color: rgba(28,168,229,0.28);
     }
     .contact-link-label {
       font-family: var(--font-display);
@@ -1120,21 +1096,21 @@
       background: linear-gradient(165deg, rgba(24, 32, 56, 0.85) 0%, rgba(18, 24, 42, 0.7) 100%);
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(16px);
-      transition: border-color 0.35s var(--ease-out), transform 0.45s var(--ease-spring), box-shadow 0.4s var(--ease-out), background 0.4s;
+      will-change: transform;
+      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
       overflow: hidden;
     }
     .step-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), var(--cyan-bright), transparent);
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
       transform: scaleX(0);
-      transition: transform 0.5s var(--ease-out);
+      transition: transform 0.45s var(--ease-out);
     }
     .step-card:hover {
-      border-color: rgba(28, 168, 229, 0.35);
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 28px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(28, 168, 229, 0.12);
-      background: linear-gradient(165deg, rgba(28, 36, 62, 0.9) 0%, rgba(22, 28, 48, 0.78) 100%);
+      border-color: rgba(28, 168, 229, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3), 0 0 35px rgba(28, 168, 229, 0.08);
     }
     .step-card:hover::before { transform: scaleX(1); }
 
@@ -1145,13 +1121,12 @@
       border: 1px solid rgba(28, 168, 229, 0.2);
       border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s, transform 0.4s var(--ease-spring), box-shadow 0.4s, border-color 0.3s;
+      transition: background 0.3s, transform 0.35s var(--ease-out), box-shadow 0.3s;
     }
     .step-card:hover .step-icon {
-      background: rgba(28, 168, 229, 0.22);
-      transform: scale(1.15) translateY(-2px);
-      box-shadow: 0 8px 24px rgba(28, 168, 229, 0.2);
-      border-color: rgba(28, 168, 229, 0.35);
+      background: rgba(28, 168, 229, 0.2);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(28, 168, 229, 0.15);
     }
 
     .step-number {
@@ -1198,25 +1173,9 @@
       transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
     }
 
-    /* ───── SMOOTH IMAGE SHIMMER ON LOAD ───── */
-    @keyframes imageShimmer {
-      0% { opacity: 0; transform: scale(1.04); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    .work-item img {
-      animation: imageShimmer 0.8s var(--ease-out) both;
-    }
-
-    /* ───── FOOTER FADE-IN ───── */
-    .footer-logo {
-      animation: heroFadeUp 0.8s var(--ease-out) 0.1s both;
-    }
-    .footer-links {
-      animation: heroFadeUp 0.7s var(--ease-out) 0.25s both;
-    }
-    .footer p {
-      animation: heroFadeUp 0.7s var(--ease-out) 0.35s both;
-    }
+    /* ───── PERFORMANCE ───── */
+    .hero-bg { will-change: transform; }
+    section { contain: layout style; }
   </style>
 </head>
 
@@ -1368,6 +1327,7 @@
         <div class="pricing-category reveal"><h3>Full Detail &amp; Protection</h3></div>
 
         <div class="price-card featured reveal stagger-1">
+          <span class="price-card-badge">BEST VALUE</span>
           <h3 class="price-card-name">Standard Full Detail</h3>
           <div class="price-card-price"><sup>$</sup>75</div>
           <ul class="price-card-features">
@@ -1683,13 +1643,20 @@
       header.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    // Subtle hero parallax — background moves slower than scroll
+    // Subtle hero parallax — GPU-accelerated with rAF
     const heroBg = document.querySelector('.hero-bg');
     if (heroBg) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (y < window.innerHeight * 1.2) {
-          heroBg.style.transform = 'translateY(' + (y * 0.3) + 'px) scale(1.05)';
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const y = window.scrollY;
+            if (y < window.innerHeight * 1.2) {
+              heroBg.style.transform = 'translate3d(0,' + (y * 0.25) + 'px,0)';
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       }, { passive: true });
     }
