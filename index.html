@@ -1,2112 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY70X8B9GE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SY70X8B9GE');
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cali Auto Wash — Mobile Car Detailing in Modesto, CA</title>
-  <meta name="description" content="Professional mobile car washing and detailing in Modesto and surrounding areas. Hand wash, interior detail, ceramic coating, and more. Call (209) 988-2892.">
-  <meta name="theme-color" content="#1CA8E5">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cali Auto Wash — Mobile Detailing, Modesto CA</title>
 
-  <!-- Schema.org LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutoWash",
-    "name": "Cali Auto Wash",
-    "description": "Professional mobile car washing and detailing service in Modesto, CA.",
-    "url": "https://caliautowash.com",
-    "telephone": "+12099882892",
-    "email": "andrewcao20@gmail.com",
-    "areaServed": {
-      "@type": "City",
-      "name": "Modesto",
-      "addressRegion": "CA"
-    },
-    "priceRange": "$40-$300+",
-    "sameAs": [
-      "https://www.instagram.com/caliautowash"
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "07:00",
-      "closes": "19:00"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Detailing Services",
-      "itemListElement": [
-        {"@type":"Offer","name":"Exterior Wash Only","price":"40","priceCurrency":"USD"},
-        {"@type":"Offer","name":"Standard Interior Detail","price":"60","priceCurrency":"USD"},
-        {"@type":"Offer","name":"Standard Full Detail (Interior + Exterior)","price":"75","priceCurrency":"USD"},
-        {"@type":"Offer","name":"Decontamination Exterior Detail","price":"100","priceCurrency":"USD"},
-        {"@type":"Offer","name":"Deep Clean Interior (Steam + Extraction)","price":"175","priceCurrency":"USD"},
-        {"@type":"Offer","name":"Paint Correction + 7-Year Graphene Ceramic Coating","price":"300","priceCurrency":"USD"}
-      ]
-    }
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  // Tweakable defaults, persisted by host on edit
+  window.TWEAKS = /*EDITMODE-BEGIN*/{
+    "palette": "golden",
+    "heroVariant": "editorial",
+    "typePair": "fraunces-geist",
+    "showBadges": true,
+    "denseCards": false
+  }/*EDITMODE-END*/;
+</script>
+
+<style>
+  :root {
+    /* Golden Hour palette — warm California */
+    --cream: oklch(0.972 0.014 78);
+    --cream-2: oklch(0.945 0.018 75);
+    --cream-3: oklch(0.905 0.022 72);
+    --ink: oklch(0.22 0.015 60);
+    --ink-soft: oklch(0.42 0.012 60);
+    --ink-dim: oklch(0.62 0.01 60);
+    --rule: oklch(0.86 0.02 70);
+    --terracotta: oklch(0.62 0.15 45);
+    --terracotta-deep: oklch(0.48 0.14 40);
+    --sage: oklch(0.62 0.065 140);
+    --sand: oklch(0.88 0.04 78);
+    --sun: oklch(0.80 0.14 82);
+
+    --font-display: 'Fraunces', 'Times New Roman', serif;
+    --font-body: 'Geist', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --radius: 4px;
+    --radius-lg: 10px;
   }
-  </script>
 
-  <style>
-    /* ═══════════════════════════════════════
-       CALI AUTO WASH — Midnight Showroom
-       ═══════════════════════════════════════ */
-
-    /* ───── RESET ───── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
-    /* ───── TOKENS ───── */
-    :root {
-      --cyan: #1CA8E5;
-      --cyan-bright: #3ebcf7;
-      --cyan-deep: #0e7ab8;
-      --cyan-glow: rgba(28, 168, 229, 0.3);
-      --cyan-subtle: rgba(28, 168, 229, 0.08);
-
-      --bg: #0e1118;
-      --bg-raised: #141824;
-      --bg-card: rgba(20, 24, 40, 0.75);
-      --bg-glass: rgba(20, 24, 40, 0.5);
-      --border: rgba(255, 255, 255, 0.1);
-      --border-hover: rgba(28, 168, 229, 0.35);
-
-      --text: #edf0f5;
-      --text-muted: #97a0b4;
-      --text-dim: #727e96;
-      --white: #ffffff;
-
-      --radius: 16px;
-      --radius-sm: 10px;
-      --radius-pill: 100px;
-
-      --font-display: 'Outfit', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-
-    /* ───── NOISE TEXTURE ───── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 9999;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px 256px;
-    }
-
-    /* ───── CONTAINER ───── */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); border: 0;
-    }
-
-    /* ───── BUTTONS ───── */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-      padding: 0.9rem 2rem;
-      font-family: var(--font-display);
-      font-weight: 600; font-size: 0.9rem;
-      letter-spacing: 0.01em;
-      border-radius: var(--radius-pill);
-      border: none; cursor: pointer;
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s, border-color 0.3s, color 0.3s, background 0.3s;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
-      transform: translateX(-100%);
-      transition: transform 0.7s var(--ease-out);
-    }
-    .btn:hover::before { transform: translateX(100%); }
-    .btn:hover { transform: translateY(-2px); }
-    .btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.1s; }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
-      color: var(--white);
-      box-shadow: 0 4px 24px var(--cyan-glow), 0 1px 3px rgba(0,0,0,0.3);
-    }
-    .btn-primary:hover {
-      box-shadow: 0 10px 35px rgba(28,168,229,0.4), 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .btn-outline {
-      background: var(--bg-glass);
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(8px);
-    }
-    .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan-bright);
-      background: rgba(28,168,229,0.06);
-    }
-    .btn-small { padding: 0.7rem 1.4rem; font-size: 0.82rem; }
-
-    /* ───── HEADER ───── */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(14, 17, 24, 0.5);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-    .header.scrolled {
-      background: rgba(14, 17, 24, 0.85);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-    }
-    .header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 110px;
-    }
-    .logo { display: flex; align-items: center; }
-    .logo-img {
-      height: 160px; width: auto;
-      margin: -30px 0;
-      transition: opacity 0.2s;
-    }
-    .logo:hover .logo-img { opacity: 0.85; }
-
-    .nav { display: flex; align-items: center; gap: 0.25rem; }
-    .nav a {
-      font-family: var(--font-display);
-      font-size: 0.85rem; font-weight: 500;
-      color: var(--text-muted);
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      transition: color 0.25s, background 0.25s;
-    }
-    .nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
-
-    .header-cta { display: flex; align-items: center; gap: 1rem; }
-    .header-phone {
-      font-family: var(--font-display);
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--text);
-      display: none;
-      align-items: center; gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: var(--radius-sm);
-      transition: color 0.2s;
-    }
-    .header-phone:hover { color: var(--cyan-bright); }
-
-    .mobile-toggle {
-      display: none; background: none; border: none; cursor: pointer;
-      width: 36px; height: 36px;
-      flex-direction: column; justify-content: center; gap: 6px;
-      padding: 6px;
-    }
-    .mobile-toggle span {
-      display: block; height: 2px; width: 100%;
-      background: var(--text); border-radius: 2px;
-      transition: transform 0.3s var(--ease-out), opacity 0.3s;
-    }
-
-    /* ───── HERO ───── */
-    .hero {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex; align-items: center;
-      padding-top: 110px;
-      position: relative; overflow: hidden;
-    }
-
-    /* Hero background with photo */
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: url('images/591169091_17918049492232766_7211252808169164403_n.jpg') center/cover no-repeat;
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(135deg, rgba(14,17,24,0.7) 0%, rgba(14,17,24,0.35) 40%, rgba(14,17,24,0.68) 100%);
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
-      background: linear-gradient(to top, var(--bg), transparent);
-    }
-
-    /* Floating orb */
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      animation: float 12s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .hero-orb-1 {
-      width: 500px; height: 500px;
-      background: rgba(28,168,229,0.07);
-      right: -5%; top: 15%;
-    }
-    .hero-orb-2 {
-      width: 300px; height: 300px;
-      background: rgba(28,168,229,0.05);
-      left: 5%; bottom: 10%;
-      animation-delay: -6s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(20px, -30px) scale(1.05); }
-      66% { transform: translate(-15px, 15px) scale(0.95); }
-    }
-
-    /* Floating particles (water droplets) */
-    .hero-particles {
-      position: absolute; inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .particle {
-      position: absolute;
-      width: 3px; height: 3px;
-      background: var(--cyan);
-      border-radius: 50%;
-      opacity: 0;
-      animation: particleRise linear infinite;
-    }
-
-    @keyframes particleRise {
-      0% { opacity: 0; transform: translateY(100vh) scale(0); }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.3; }
-      100% { opacity: 0; transform: translateY(-10vh) scale(1); }
-    }
-
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 680px;
-      padding: 4rem 0;
-    }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.55rem 1.3rem;
-      background: rgba(28,168,229,0.15);
-      border: 1px solid rgba(28,168,229,0.35);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-display);
-      font-size: 0.82rem; font-weight: 700;
-      color: var(--cyan-bright);
-      margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 20px rgba(28,168,229,0.12), inset 0 0 12px rgba(28,168,229,0.06);
-    }
-    .hero-badge-dot {
-      width: 8px; height: 8px;
-      background: var(--cyan-bright);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--cyan), 0 0 20px rgba(28,168,229,0.4);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-    }
-    .hero h1 .accent {
-      background: linear-gradient(135deg, var(--cyan-bright) 0%, var(--cyan) 50%, var(--cyan-deep) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      max-width: 500px;
-      line-height: 1.75;
-    }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    /* Scroll indicator */
-    .scroll-hint {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      z-index: 2;
-    }
-    .scroll-hint-text {
-      font-family: var(--font-display);
-      font-size: 0.7rem; font-weight: 500;
-      color: var(--text-dim);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .scroll-hint-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--cyan), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 1; transform: scaleY(1); }
-      50% { opacity: 0.3; transform: scaleY(0.6); }
-    }
-
-    /* ───── SECTION COMMON ───── */
-    section { padding: 7rem 0; }
-    .section-label {
-      font-family: var(--font-display);
-      font-size: 0.72rem; font-weight: 700;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .section-label::before {
-      content: '';
-      width: 24px; height: 1.5px;
-      background: var(--cyan);
-      border-radius: 2px;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      color: var(--white);
-    }
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 520px;
-      margin-bottom: 3.5rem;
-      line-height: 1.7;
-    }
-    .section-center { text-align: center; }
-    .section-center .section-label { justify-content: center; }
-    .section-center .section-label::before { display: none; }
-    .section-center .section-sub { margin-left: auto; margin-right: auto; }
-
-    /* ───── REVEAL ANIMATIONS ───── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1) translateX(0);
-    }
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.92);
-      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
-    }
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* ───── HERO ENTRANCE ───── */
-    .hero-badge {
-      animation: heroBadgeIn 0.8s var(--ease-out) 0.2s both;
-    }
-    .hero h1 {
-      animation: heroFadeUp 0.9s var(--ease-out) 0.4s both;
-    }
-    .hero-sub {
-      animation: heroFadeUp 0.9s var(--ease-out) 0.6s both;
-    }
-    .hero-buttons {
-      animation: heroFadeUp 0.9s var(--ease-out) 0.8s both;
-    }
-    @keyframes heroBadgeIn {
-      0% { opacity: 0; transform: translateY(20px) scale(0.9); filter: blur(4px); }
-      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-    }
-    @keyframes heroFadeUp {
-      0% { opacity: 0; transform: translateY(30px); filter: blur(3px); }
-      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-    }
-
-    /* ───── PRICING ───── */
-    .pricing {
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
-    }
-    .pricing::before {
-      content: '';
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 70%; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
-      z-index: 1;
-    }
-    .pricing::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/camry-detail.jpg') center top/cover no-repeat;
-      opacity: 0.18;
-      filter: blur(1px);
-    }
-
-    .pricing > .container { position: relative; z-index: 1; }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-    .price-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      display: flex; flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-      will-change: transform;
-      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
-    }
-    .price-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.3), 0 0 40px rgba(28,168,229,0.08);
-    }
-
-    .price-card.featured {
-      border-color: rgba(28,168,229,0.25);
-      background: linear-gradient(160deg, rgba(28,168,229,0.08) 0%, var(--bg-card) 50%);
-    }
-    .price-card.featured .price-card-badge {
-      position: absolute; top: 0; right: 0;
-      background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 0.65rem; font-weight: 800;
-      padding: 0.4rem 1.2rem 0.4rem 1.4rem;
-      border-radius: 0 var(--radius) 0 var(--radius);
-      letter-spacing: 0.08em;
-      z-index: 2;
-    }
-
-    .price-card-name {
-      font-family: var(--font-display);
-      font-size: 1.15rem; font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--white);
-    }
-    .price-card-price {
-      font-family: var(--font-display);
-      font-size: 2.8rem; font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, var(--cyan-bright), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .price-card-price sup {
-      font-size: 1.6rem; font-weight: 800;
-      position: relative; top: -0.75rem;
-      margin-right: 0.15rem;
-      -webkit-text-fill-color: var(--cyan-bright);
-      color: var(--cyan-bright);
-    }
-    .price-card-features { flex: 1; margin-bottom: 1.75rem; }
-    .price-card-features li {
-      padding: 0.4rem 0;
-      font-size: 0.88rem; color: var(--text-muted);
-      display: flex; align-items: flex-start; gap: 0.6rem;
-    }
-    .price-card-features li::before {
-      content: '';
-      width: 16px; height: 16px;
-      flex-shrink: 0;
-      margin-top: 0.15rem;
-      background: rgba(28,168,229,0.12);
-      border: 1.5px solid rgba(28,168,229,0.3);
-      border-radius: 50%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 6.5L5 8.5L9 4' stroke='%231CA8E5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 10px;
-    }
-    .price-card .btn { width: 100%; }
-
-    /* Category headers */
-    .pricing-category {
-      grid-column: 1 / -1;
-      padding: 1.5rem 0 0.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .pricing-category h3 {
-      font-family: var(--font-display);
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--text-dim);
-      white-space: nowrap;
-    }
-    .pricing-category::after {
-      content: '';
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
-    }
-
-    /* ───── WHY US ───── */
-    .why-us {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(14,18,28,0.8) 0%, rgba(16,20,32,0.7) 50%, rgba(14,18,28,0.8) 100%);
-    }
-    .why-us::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/civic-clean.jpg') center/cover no-repeat;
-      opacity: 0.2;
-      filter: blur(1px);
-    }
-    .why-us::after {
-      content: '';
-      position: absolute;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(28,168,229,0.08) 0%, transparent 60%);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .why-us > .container { position: relative; z-index: 1; }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .why-card {
-      padding: 2.25rem 1.75rem;
-      border-radius: var(--radius);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(8px);
-      will-change: transform;
-      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
-    .why-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--cyan-bright), transparent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.45s var(--ease-out);
-    }
-    .why-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(28,168,229,0.06);
-    }
-    .why-card:hover::after { transform: scaleX(1); }
-
-    .why-icon {
-      width: 52px; height: 52px;
-      background: rgba(28,168,229,0.08);
-      border: 1px solid rgba(28,168,229,0.15);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem;
-      transition: background 0.3s, transform 0.35s var(--ease-out), box-shadow 0.3s;
-    }
-    .why-card:hover .why-icon {
-      background: rgba(28,168,229,0.16);
-      transform: scale(1.1);
-      box-shadow: 0 0 18px rgba(28,168,229,0.12);
-    }
-    .why-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.05rem; font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: var(--white);
-    }
-    .why-card p {
-      font-size: 0.88rem; color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ───── RECENT WORK ───── */
-    .recent-work {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(14,18,28,0.78) 0%, rgba(16,20,32,0.68) 50%, rgba(14,18,28,0.78) 100%);
-    }
-    .recent-work::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/604046414_17919508482232766_1651001897021971849_n.jpg') center/cover no-repeat;
-      opacity: 0.2;
-      filter: blur(1px);
-    }
-    .recent-work > .container { position: relative; z-index: 1; }
-    .work-video {
-      display: block;
-      margin-bottom: 2.5rem;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      aspect-ratio: 16/9;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(28,168,229,0.06);
-      transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s var(--ease-out);
-    }
-    .work-video:hover {
-      border-color: var(--border-hover);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.5), 0 0 60px rgba(28,168,229,0.1);
-      transform: translateY(-4px);
-    }
-    .work-video img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .work-video-play {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px; height: 80px;
-      background: rgba(28,168,229,0.9);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 30px rgba(28,168,229,0.4);
-      transition: transform 0.3s var(--ease-spring), background 0.3s;
-    }
-    .work-video:hover .work-video-play {
-      transform: translate(-50%, -50%) scale(1.1);
-      background: var(--cyan);
-    }
-    .work-video-play svg { margin-left: 4px; }
-    .work-video-label {
-      position: absolute; bottom: 1.5rem; left: 1.5rem;
-      font-family: var(--font-display);
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--white);
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-pill);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-    .work-item.featured-work {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-    .work-item.featured-work img { height: 100%; }
-    .work-item {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      will-change: transform;
-      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
-    }
-    .work-item:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.35), 0 0 40px rgba(28,168,229,0.06);
-    }
-    .work-item img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      will-change: transform;
-      transition: transform 0.5s var(--ease-out);
-    }
-    .work-item:hover img { transform: scale(1.04); }
-    .work-item-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(14,17,24,0.88) 0%, rgba(14,17,24,0.35) 60%, transparent 100%);
-      transform: translateY(6px);
-      opacity: 0.9;
-      transition: transform 0.4s var(--ease-out), opacity 0.3s;
-    }
-    .work-item:hover .work-item-overlay {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .work-item-tag {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-size: 0.68rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--cyan);
-      background: rgba(28,168,229,0.12);
-      border: 1px solid rgba(28,168,229,0.2);
-      padding: 0.3rem 0.8rem;
-      border-radius: var(--radius-pill);
-      margin-bottom: 0.6rem;
-    }
-    .work-item-title {
-      font-family: var(--font-display);
-      font-size: 1.2rem; font-weight: 700;
-      color: var(--white);
-    }
-
-    @media (max-width: 768px) {
-      .work-grid { grid-template-columns: 1fr 1fr; }
-      .work-item.featured-work { grid-column: span 2; grid-row: span 1; }
-      .work-item.featured-work img { height: 300px; }
-      .work-item img { height: 220px; }
-      .work-item-overlay { padding: 1rem; }
-      .work-item-title { font-size: 0.9rem; }
-    }
-    @media (max-width: 480px) {
-      .work-grid { grid-template-columns: 1fr; }
-      .work-item.featured-work { grid-column: span 1; }
-    }
-
-    /* ───── CONTACT ───── */
-    .contact {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(14,18,28,0.78) 0%, rgba(16,20,32,0.7) 50%, rgba(14,18,28,0.8) 100%);
-    }
-    .contact::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/tacoma-clean.jpg') center/cover no-repeat;
-      opacity: 0.18;
-      filter: blur(1px);
-    }
-
-    .contact > .container { position: relative; z-index: 1; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .contact-info h3 {
-      font-family: var(--font-display);
-      font-size: 1.3rem; font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-    }
-    .contact-link {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      transition: all 0.3s var(--ease-out);
-    }
-    .contact-link:hover {
-      border-bottom-color: var(--border-hover);
-    }
-    .contact-link:hover .contact-link-value { color: var(--cyan-bright); }
-    .contact-link-icon {
-      width: 44px; height: 44px;
-      background: rgba(28,168,229,0.06);
-      border: 1px solid rgba(28,168,229,0.12);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.3s, border-color 0.3s, transform 0.4s var(--ease-spring), box-shadow 0.3s;
-    }
-    .contact-link:hover .contact-link-icon {
-      background: rgba(28,168,229,0.14);
-      border-color: rgba(28,168,229,0.28);
-    }
-    .contact-link-label {
-      font-family: var(--font-display);
-      font-size: 0.68rem; color: var(--text-dim);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-    .contact-link-value {
-      font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.25s;
-    }
-
-    .contact-booking {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem 1.75rem 1.25rem;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-booking::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    }
-    .contact-booking h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem; font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: var(--white);
-    }
-    .contact-booking p {
-      color: var(--text-muted); font-size: 0.88rem;
-      margin-bottom: 1.25rem;
-      line-height: 1.65;
-    }
-    .booking-iframe-wrap {
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff;
-      margin-bottom: 1rem;
-    }
-    .booking-iframe-wrap iframe {
-      width: 100%;
-      height: 520px;
-      border: none;
-      display: block;
-    }
-    .booking-fallback {
-      margin-top: 0.5rem;
-    }
-    .booking-fallback a {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      transition: color 0.2s;
-    }
-    .booking-fallback a:hover { color: var(--cyan-bright); }
-
-    /* ───── FOOTER ───── */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 3.5rem 0;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(14,18,28,0.95) 0%, rgba(10,14,22,1) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .footer::after {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(28,168,229,0.06) 0%, transparent 60%);
-      top: 30%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .footer > .container { position: relative; z-index: 1; }
-    .footer-logo {
-      height: 130px; width: auto;
-      margin: 0 auto 1.25rem;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-    .footer-logo:hover { opacity: 1; }
-    .footer-links {
-      display: flex; justify-content: center; gap: 1.25rem 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-    .footer-links a {
-      font-family: var(--font-display);
-      font-size: 0.82rem; font-weight: 500;
-      color: var(--text-dim);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--cyan-bright); }
-    .footer p {
-      font-size: 0.75rem; color: var(--text-dim);
-      letter-spacing: 0.02em;
-    }
-
-    /* ───── STICKY MOBILE CTA ───── */
-    .mobile-cta {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(10, 12, 20, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
-      padding: 0.75rem 1rem;
-    }
-    .mobile-cta a {
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      width: 100%; padding: 0.95rem;
-      background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
-      color: var(--white);
-      font-family: var(--font-display);
-      font-weight: 700; font-size: 0.95rem;
-      border-radius: 14px;
-      box-shadow: 0 4px 24px var(--cyan-glow);
-    }
-
-    /* ───── MOBILE NAV ───── */
-    .mobile-nav {
-      display: none;
-      position: fixed; inset: 0; z-index: 99;
-      background: rgba(10, 12, 20, 0.96);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1.5rem;
-    }
-    .mobile-nav.active { display: flex; }
-    .mobile-nav a {
-      font-family: var(--font-display);
-      font-size: 1.5rem; font-weight: 600;
-      color: var(--text);
-      transition: color 0.2s;
-    }
-    .mobile-nav a:hover { color: var(--cyan-bright); }
-
-    /* ───── RESPONSIVE ───── */
-    @media (max-width: 768px) {
-      .nav { display: none; }
-      .header-phone { display: none !important; }
-      .mobile-toggle { display: flex; }
-
-      /* Header */
-      .logo-img { height: 65px; margin: -12px 0; }
-      .header-inner { height: 72px; }
-      .header-cta .btn { padding: 0.7rem 1.4rem; font-size: 0.8rem; }
-
-      /* Hero */
-      .hero { min-height: 100svh; padding-top: 72px; }
-      .hero-content { padding: 2rem 0; }
-      .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; }
-      .hero-sub { font-size: 1rem; margin-bottom: 2rem; line-height: 1.7; }
-      .hero-badge { font-size: 0.72rem; padding: 0.4rem 0.9rem; }
-      .hero-buttons { flex-direction: column; gap: 0.75rem; }
-      .hero-buttons .btn { width: 100%; }
-      .scroll-hint { display: none; }
-
-      /* Sections */
-      section { padding: 3.5rem 0; }
-      .section-title { font-size: 1.7rem; }
-      .section-sub { font-size: 0.95rem; margin-bottom: 2.5rem; }
-
-      /* Pricing */
-      .pricing-grid { grid-template-columns: 1fr; }
-      .price-card { padding: 1.75rem; }
-      .price-card-price { font-size: 2.4rem; }
-
-      /* Why Us */
-      .why-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-      .why-card { padding: 1.5rem 1.25rem; }
-      .why-card h3 { font-size: 0.95rem; }
-      .why-card p { font-size: 0.82rem; }
-      .why-icon { width: 46px; height: 46px; margin-bottom: 1.1rem; }
-
-      /* Gallery */
-      .work-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-      .work-item.featured-work { grid-column: span 1; grid-row: span 1; }
-      .work-item.featured-work img { height: 260px; }
-      .work-item img { height: 240px; }
-      .work-item-overlay { padding: 1.25rem; }
-      .work-item-title { font-size: 1rem; }
-
-      /* Contact */
-      .contact-grid { grid-template-columns: 1fr; }
-      .contact-info h3 { font-size: 1.1rem; }
-      .contact-link-value { font-size: 0.85rem; }
-
-      /* Booking iframe */
-      .booking-iframe-wrap iframe { height: 480px; }
-      .contact-booking { padding: 1.5rem 1.25rem 1rem; }
-
-      /* Fix header text bleed-through on mobile */
-      .header {
-        background: rgba(14, 17, 24, 0.92);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-      }
-      .header.scrolled {
-        background: rgba(14, 17, 24, 0.97);
-      }
-
-      /* Mobile backgrounds — cover fills everything, no blur, brighter */
-      .pricing::after,
-      .why-us::before,
-      .recent-work::before,
-      .contact::before,
-      .how-it-works .section-bg {
-        background-size: cover !important;
-        background-position: center !important;
-        opacity: 0.2;
-        filter: none;
-      }
-
-      /* Sticky CTA spacing */
-      .mobile-cta { display: block; }
-      body { padding-bottom: 76px; }
-      .footer { padding-bottom: 2rem; }
-
-      /* Disable parallax on mobile for performance */
-      .hero-bg { transform: none !important; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2rem; }
-      .hero-sub { font-size: 0.92rem; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-card { padding: 1.75rem 1.25rem; }
-      .work-item img { height: 220px; }
-      .work-item.featured-work img { height: 220px; }
-      .section-title { font-size: 1.5rem; }
-      .step-card { padding: 2rem 1.5rem 1.75rem; }
-      .booking-iframe-wrap iframe { height: 440px; }
-    }
-
-    @media (min-width: 769px) {
-      .header-phone { display: flex; }
-    }
-
-    @media (min-width: 1024px) {
-      .pricing-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    /* ───── HOW IT WORKS ───── */
-    .how-it-works {
-      padding: 6rem 0;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(16, 22, 38, 0.82) 50%, var(--bg) 100%);
-    }
-    .how-it-works .section-bg {
-      position: absolute; inset: 0;
-      background: url('images/659322185_17934280302232766_3357844027542217812_n.jpg') center/cover no-repeat;
-      opacity: 0.18;
-      filter: blur(1px);
-    }
-    .how-it-works > .container { position: relative; z-index: 1; }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      text-align: center;
-    }
-    .step-card {
-      position: relative;
-      padding: 2.5rem 1.75rem 2.25rem;
-      border-radius: var(--radius);
-      background: linear-gradient(165deg, rgba(24, 32, 56, 0.85) 0%, rgba(18, 24, 42, 0.7) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(16px);
-      will-change: transform;
-      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
-      overflow: hidden;
-    }
-    .step-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-      transform: scaleX(0);
-      transition: transform 0.45s var(--ease-out);
-    }
-    .step-card:hover {
-      border-color: rgba(28, 168, 229, 0.3);
-      transform: translateY(-6px);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3), 0 0 35px rgba(28, 168, 229, 0.08);
-    }
-    .step-card:hover::before { transform: scaleX(1); }
-
-    .step-icon {
-      width: 56px; height: 56px;
-      margin: 0 auto 1.5rem;
-      background: rgba(28, 168, 229, 0.1);
-      border: 1px solid rgba(28, 168, 229, 0.2);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s, transform 0.35s var(--ease-out), box-shadow 0.3s;
-    }
-    .step-card:hover .step-icon {
-      background: rgba(28, 168, 229, 0.2);
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(28, 168, 229, 0.15);
-    }
-
-    .step-number {
-      font-family: var(--font-display);
-      font-size: 0.72rem; font-weight: 700;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.5rem;
-    }
-    .step-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.65rem;
-    }
-    .step-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    @media (max-width: 768px) {
-      .steps-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
-    }
-    @media (max-width: 480px) {
-      .steps-grid { grid-template-columns: 1fr !important; }
-    }
-
-    /* ───── STAGGER DELAYS ───── */
-    .stagger-1 { transition-delay: 0.08s; }
-    .stagger-2 { transition-delay: 0.16s; }
-    .stagger-3 { transition-delay: 0.24s; }
-    .stagger-4 { transition-delay: 0.32s; }
-    .stagger-5 { transition-delay: 0.4s; }
-    .stagger-6 { transition-delay: 0.48s; }
-    .stagger-7 { transition-delay: 0.56s; }
-
-    /* ───── SECTION TITLE REVEAL ───── */
-    .section-label {
-      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
-    }
-    .section-title {
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-    }
-
-    /* ───── BEFORE & AFTER ───── */
-    .before-after {
-      position: relative; overflow: hidden;
-      background: linear-gradient(180deg, rgba(14,18,28,0.78) 0%, rgba(16,20,32,0.68) 50%, rgba(14,18,28,0.78) 100%);
-    }
-    .before-after::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/IMG_1179.jpg') center/cover no-repeat;
-      opacity: 0.18;
-      filter: blur(1px);
-    }
-    .before-after > .container { position: relative; z-index: 1; }
-    .ba-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    .ba-pair {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      will-change: transform;
-      transition: border-color 0.3s, transform 0.4s var(--ease-out), box-shadow 0.4s;
-    }
-    .ba-pair:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-    .ba-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .ba-images img {
-      width: 100%; height: 280px;
-      object-fit: cover;
-    }
-    .ba-label {
-      position: absolute; top: 0.75rem;
-      font-family: var(--font-display);
-      font-size: 0.65rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      padding: 0.3rem 0.7rem;
-      border-radius: var(--radius-pill);
-      z-index: 2;
-    }
-    .ba-label-before {
-      left: 0.75rem;
-      background: rgba(239, 68, 68, 0.85);
-      color: #fff;
-    }
-    .ba-label-after {
-      right: 0.75rem;
-      background: rgba(34, 197, 94, 0.85);
-      color: #fff;
-    }
-    .ba-caption {
-      padding: 0.85rem 1rem;
-      font-family: var(--font-display);
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--white);
-      background: var(--bg-card);
-      text-align: center;
-    }
-    @media (max-width: 768px) {
-      .ba-grid { grid-template-columns: 1fr; }
-      .ba-images { grid-template-columns: 1fr 1fr; }
-      .ba-images img { height: 160px; }
-      .ba-caption { font-size: 0.78rem; padding: 0.65rem 0.75rem; }
-      .ba-label { font-size: 0.58rem; padding: 0.2rem 0.5rem; top: 0.5rem; }
-      .ba-label-before { left: 0.5rem; }
-      .ba-label-after { right: 0.5rem; }
-    }
-
-    /* ───── HERO TRUST BADGES ───── */
-    .hero-trust {
-      display: flex; gap: 1.5rem; flex-wrap: wrap;
-      margin-top: 1.75rem;
-    }
-    .hero-trust span {
-      font-family: var(--font-display);
-      font-size: 0.78rem; font-weight: 500;
-      color: var(--text-muted);
-      letter-spacing: 0.01em;
-    }
-    @media (max-width: 768px) {
-      .hero-trust { gap: 0.5rem 1.25rem; margin-top: 1.25rem; }
-      .hero-trust span { font-size: 0.72rem; }
-    }
-
-    /* ───── PRICE CARD TIME ───── */
-    .price-card-time {
-      font-family: var(--font-display);
-      font-size: 0.78rem; font-weight: 600;
-      color: var(--text-dim);
-      margin-bottom: 1.25rem;
-      display: flex; align-items: center; gap: 0.4rem;
-    }
-    .price-card-time::before {
-      content: '';
-      width: 14px; height: 14px;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23727e96' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
-      background-size: contain;
-      background-repeat: no-repeat;
-      flex-shrink: 0;
-    }
-
-    /* ───── OPEN STATUS ───── */
-    .open-badge {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      font-size: 0.7rem; font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-pill);
-      margin-left: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-    .open-badge.is-open {
-      background: rgba(34, 197, 94, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.25);
-    }
-    .open-badge.is-closed {
-      background: rgba(239, 68, 68, 0.1);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.2);
-    }
-    .open-badge-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    .is-open .open-badge-dot { background: #4ade80; }
-    .is-closed .open-badge-dot { background: #f87171; }
-
-    /* ───── FAQ ───── */
-    .faq-section {
-      position: relative; overflow: hidden;
-      background: linear-gradient(180deg, rgba(14,18,28,0.8) 0%, rgba(16,20,32,0.7) 50%, rgba(14,18,28,0.8) 100%);
-    }
-    .faq-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('images/infiniti-q50-detail.jpg') center/cover no-repeat;
-      opacity: 0.18;
-      filter: blur(1px);
-    }
-    .faq-section > .container { position: relative; z-index: 1; }
-    .faq-grid {
-      max-width: 740px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-question {
-      width: 100%;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 0;
-      background: none; border: none; cursor: pointer;
-      font-family: var(--font-display);
-      font-size: 1rem; font-weight: 600;
-      color: var(--white);
-      text-align: left;
-      transition: color 0.2s;
-    }
-    .faq-question:hover { color: var(--cyan-bright); }
-    .faq-question svg {
-      flex-shrink: 0;
-      stroke: var(--text-dim);
-      transition: transform 0.3s var(--ease-out), stroke 0.2s;
-    }
-    .faq-item.open .faq-question svg {
-      transform: rotate(180deg);
-      stroke: var(--cyan);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s var(--ease-out), padding 0.3s;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      padding-bottom: 1.25rem;
-    }
-    .faq-answer p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .faq-question { font-size: 0.9rem; padding: 1rem 0; }
-      .faq-answer p { font-size: 0.85rem; }
-    }
-
-    /* ───── PERFORMANCE ───── */
-    .hero-bg { will-change: transform; }
-    section { contain: layout style; }
-  </style>
+  /* palette variants via [data-palette] on <html> */
+  html[data-palette="coastal"] {
+    --cream: oklch(0.97 0.012 220);
+    --cream-2: oklch(0.94 0.018 220);
+    --cream-3: oklch(0.90 0.024 220);
+    --ink: oklch(0.22 0.035 250);
+    --terracotta: oklch(0.60 0.12 240);
+    --terracotta-deep: oklch(0.45 0.11 240);
+    --sage: oklch(0.70 0.09 195);
+    --sand: oklch(0.86 0.04 220);
+    --sun: oklch(0.82 0.10 220);
+  }
+  html[data-palette="desert"] {
+    --cream: oklch(0.94 0.020 60);
+    --cream-2: oklch(0.90 0.030 55);
+    --cream-3: oklch(0.85 0.038 50);
+    --ink: oklch(0.24 0.025 40);
+    --terracotta: oklch(0.55 0.16 35);
+    --terracotta-deep: oklch(0.42 0.14 30);
+    --sage: oklch(0.58 0.07 125);
+    --sand: oklch(0.82 0.06 60);
+    --sun: oklch(0.78 0.14 70);
+  }
+  html[data-palette="midnight"] {
+    --cream: oklch(0.17 0.015 260);
+    --cream-2: oklch(0.21 0.018 260);
+    --cream-3: oklch(0.26 0.020 260);
+    --ink: oklch(0.95 0.01 80);
+    --ink-soft: oklch(0.80 0.01 80);
+    --ink-dim: oklch(0.60 0.01 80);
+    --rule: oklch(0.30 0.018 260);
+    --terracotta: oklch(0.70 0.13 55);
+    --terracotta-deep: oklch(0.55 0.15 50);
+    --sage: oklch(0.75 0.08 150);
+    --sand: oklch(0.25 0.02 260);
+    --sun: oklch(0.80 0.14 80);
+  }
+
+  /* type variants */
+  html[data-type="serif-mono"] {
+    --font-display: 'Fraunces', serif;
+    --font-body: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  html[data-type="geist-only"] {
+    --font-display: 'Geist', system-ui, sans-serif;
+    --font-body: 'Geist', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  ul, ol { list-style: none; }
+
+  /* soft paper texture — disabled; mix-blend-mode causes compositing issues on long sessions */
+  body::before { display: none; }
+
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 0 2rem; }
+
+  /* Type */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .rule {
+    height: 1px;
+    background: var(--rule);
+    border: 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem; font-weight: 500;
+    padding: 0.85rem 1.35rem;
+    border-radius: var(--radius);
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+    letter-spacing: -0.005em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklch, var(--ink) 85%, white);
+    color: var(--cream);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .btn-ghost:hover {
+    background: color-mix(in oklch, var(--ink) 6%, transparent);
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .btn-accent {
+    background: var(--terracotta);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-accent:hover { background: var(--terracotta); }
+  .btn-accent .shine {
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      transparent 35%,
+      color-mix(in oklch, white 22%, transparent) 50%,
+      transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.7s var(--ease);
+    pointer-events: none;
+  }
+  .btn-accent:hover .shine { transform: translateX(120%); }
+  .btn-accent > *:not(.shine) { position: relative; z-index: 1; }
+  .btn .arrow {
+    transition: transform 0.3s var(--ease);
+    display: inline-block;
+  }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Reveal — only hide if observer is actively tracking (has data-reveal-armed) */
+  .reveal { transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  .reveal[data-reveal-armed="1"] { opacity: 0; transform: translateY(24px); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* number tick */
+  .num-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-dim);
+    letter-spacing: 0.08em;
+  }
+
+  .hide-mobile { display: inline-flex; }
+  .show-mobile { display: none; }
+  .hide-small { display: block; }
+
+  .nav-link-pill { position: relative; }
+  .nav-link-pill:hover {
+    background: color-mix(in oklch, var(--ink) 8%, transparent);
+    color: var(--ink) !important;
+  }
+
+  .nav-link-edt { position: relative; text-decoration: none; }
+  .nav-link-edt::after {
+    content: '';
+    position: absolute; left: 0.85rem; right: 0.85rem; bottom: 0.35rem;
+    height: 1px; background: var(--ink);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s var(--ease);
+  }
+  .nav-link-edt:hover::after { transform: scaleX(1); }
+  .nav-link-edt:hover span:first-child { color: var(--ink) !important; }
+
+  @keyframes dot-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+
+  @keyframes btn-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  @keyframes btn-nudge {
+    0%, 88%, 100% { transform: translateY(0) scale(1); }
+    92% { transform: translateY(-5px) scale(1.02); }
+    96% { transform: translateY(-2px) scale(1.01); }
+  }
+  .btn-bounce {
+    animation: btn-nudge 4.5s ease-in-out infinite;
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--terracotta) 40%, transparent);
+  }
+  .btn-bounce::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border: 1px solid var(--terracotta);
+    border-radius: inherit;
+    opacity: 0;
+    animation: btn-halo 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes btn-halo {
+    0%, 85%, 100% { opacity: 0; transform: scale(0.96); }
+    92%           { opacity: 0.6; transform: scale(1); }
+    98%           { opacity: 0; transform: scale(1.08); }
+  }
+  .btn-bounce:hover {
+    animation: none;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -14px color-mix(in oklch, var(--terracotta-deep) 80%, transparent);
+  }
+  .btn-bounce {
+    position: relative;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-bounce { animation: none !important; }
+    .btn-bounce::before { animation: none !important; }
+  }
+
+  @media (max-width: 960px) {
+    .hide-small { display: none !important; }
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 0 1.25rem; }
+    .hide-mobile { display: none !important; }
+    .show-mobile { display: flex !important; }
+  }
+
+</style>
 </head>
-
 <body>
 
-  <!-- ═══════ HEADER ═══════ -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Cali Auto Wash — Home">
-        <img src="images/logo.png" alt="Cali Auto Wash" class="logo-img">
-      </a>
+<div id="app"></div>
 
-      <nav class="nav" aria-label="Main">
-        <a href="#pricing">Pricing</a>
-        <a href="#why">Why Us</a>
-        <a href="#work">Our Work</a>
-        <a href="#results">Results</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- React -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-      <div class="header-cta">
-        <a href="tel:+12099882892" class="header-phone">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (209) 988-2892
-        </a>
-        <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary btn-small">
-          Book Now
-        </a>
-      </div>
-
-      <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.mobile-nav').classList.toggle('active'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile nav overlay -->
-  <div class="mobile-nav" aria-label="Mobile navigation">
-    <a href="#pricing" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Pricing</a>
-    <a href="#why" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Why Us</a>
-    <a href="#work" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Our Work</a>
-    <a href="#results" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Results</a>
-    <a href="#faq" onclick="document.querySelector('.mobile-nav').classList.remove('active')">FAQ</a>
-    <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('active')">Contact</a>
-    <a href="tel:+12099882892">Call (209) 988-2892</a>
-    <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a>
-  </div>
-
-  <!-- ═══════ HERO ═══════ -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-    <div class="hero-particles" id="particles" aria-hidden="true"></div>
-
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge reveal">
-          <span class="hero-badge-dot" aria-hidden="true"></span>
-          Mobile Detailing — Modesto, CA
-        </div>
-        <h1 class="reveal stagger-1">Car washing &amp; detailing<br><span class="accent">done right.</span></h1>
-        <p class="hero-sub reveal stagger-2">
-          Professional mobile car detailing that comes to you. Serving Modesto and surrounding areas with premium hand wash, interior detail, and ceramic coating services.
-        </p>
-        <div class="hero-buttons reveal stagger-3">
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Book an Appointment
-          </a>
-          <a href="tel:+12099882892" class="btn btn-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call Now
-          </a>
-        </div>
-        <div class="hero-trust reveal stagger-4">
-          <span>&#10003; Same-day available</span>
-          <span>&#10003; We come to you</span>
-          <span>&#10003; 100% hand wash</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-hint" aria-hidden="true">
-      <span class="scroll-hint-text">Scroll</span>
-      <div class="scroll-hint-line"></div>
-    </div>
-  </section>
-
-  <!-- ═══════ PRICING ═══════ -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">Pricing</p>
-        <h2 class="section-title">Simple, transparent pricing</h2>
-        <p class="section-sub">Professional detailing services starting at $40. We come to you — no drop-off needed.</p>
-      </div>
-
-      <div class="pricing-grid">
-
-        <!-- Exterior -->
-        <div class="pricing-category reveal"><h3>Exterior</h3></div>
-
-        <div class="price-card reveal stagger-1">
-          <h3 class="price-card-name">Exterior Wash Only</h3>
-          <div class="price-card-price"><sup>$</sup>40</div>
-          <div class="price-card-time">~45 min</div>
-          <ul class="price-card-features">
-            <li>Pre-rinse</li>
-            <li>Full hand wash</li>
-            <li>Wheels &amp; tires cleaned</li>
-            <li>Windows cleaned</li>
-            <li>Tire shine</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-outline btn-small">Book Now</a>
-        </div>
-
-        <div class="price-card reveal stagger-2">
-          <h3 class="price-card-name">Decontamination Exterior Detail</h3>
-          <div class="price-card-price"><sup>$</sup>100</div>
-          <div class="price-card-time">~1.5 hrs</div>
-          <ul class="price-card-features">
-            <li>Stronger than a basic wash</li>
-            <li>Full decontamination steps</li>
-            <li>Clay bar treatment</li>
-            <li>Spray wax finish</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-outline btn-small">Book Now</a>
-        </div>
-
-        <!-- Interior -->
-        <div class="pricing-category reveal"><h3>Interior</h3></div>
-
-        <div class="price-card reveal stagger-1">
-          <h3 class="price-card-name">Standard Interior Detail</h3>
-          <div class="price-card-price"><sup>$</sup>60</div>
-          <div class="price-card-time">~1 hr</div>
-          <ul class="price-card-features">
-            <li>Basic interior refresh</li>
-            <li>Full vacuum</li>
-            <li>Dashboard &amp; console wipe down</li>
-            <li>Windows cleaned</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-outline btn-small">Book Now</a>
-        </div>
-
-        <div class="price-card reveal stagger-2">
-          <h3 class="price-card-name">Deep Clean Interior</h3>
-          <div class="price-card-price"><sup>$</sup>175<span style="font-size:0.9rem;font-weight:500;color:var(--text-muted);">+</span></div>
-          <div class="price-card-time">~2–3 hrs</div>
-          <ul class="price-card-features">
-            <li>Steam cleaning</li>
-            <li>Hot water extraction</li>
-            <li>Carpet &amp; upholstery shampoo</li>
-            <li>Leather protection</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-outline btn-small">Book Now</a>
-        </div>
-
-        <!-- Full Detail -->
-        <div class="pricing-category reveal"><h3>Full Detail &amp; Protection</h3></div>
-
-        <div class="price-card featured reveal stagger-1">
-          <span class="price-card-badge">BEST VALUE</span>
-          <h3 class="price-card-name">Standard Full Detail</h3>
-          <div class="price-card-price"><sup>$</sup>75</div>
-          <div class="price-card-time">~1.5 hrs</div>
-          <ul class="price-card-features">
-            <li>Interior + Exterior combined</li>
-            <li>Exterior Wash Only package</li>
-            <li>Standard Interior Detail</li>
-            <li>Best value for a complete clean</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-primary btn-small">Book Now</a>
-        </div>
-
-        <div class="price-card reveal stagger-2">
-          <h3 class="price-card-name">Paint Correction + Ceramic Coating</h3>
-          <div class="price-card-price"><sup>$</sup>300<span style="font-size:0.9rem;font-weight:500;color:var(--text-muted);">+</span></div>
-          <div class="price-card-time">~4–6 hrs</div>
-          <ul class="price-card-features">
-            <li>Full paint correction</li>
-            <li>7-year graphene ceramic coating</li>
-            <li>Pre-wash &amp; decontamination</li>
-            <li>Ultimate paint protection</li>
-          </ul>
-          <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener" class="btn btn-outline btn-small">Book Now</a>
-        </div>
-
-        <!-- Add-ons note -->
-        <div class="pricing-category reveal"><h3>Add-Ons (Available Upon Request)</h3></div>
-        <div class="price-card reveal stagger-1" style="grid-column: 1 / -1; padding: 1.5rem 2rem;">
-          <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Pet Hair Removal</span>
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Stain Treatment</span>
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Odor Treatment</span>
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Headlight Restoration</span>
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Engine Bay Cleaning</span>
-            <span style="background:var(--cyan-subtle); border:1px solid rgba(28,168,229,0.15); padding:0.4rem 1rem; border-radius:var(--radius-pill); font-size:0.82rem; color:var(--text-muted);">Trim Restoration</span>
-          </div>
-          <p style="color:var(--text-dim); font-size:0.82rem; margin-top:0.75rem;">Text us what you need and we'll recommend the best option. Service times vary by vehicle size and condition — most appointments range from 1–4 hours.</p>
-        </div>
-
-      </div>
-
-      <div style="text-align:center; margin-top:2.5rem;" class="reveal">
-        <p style="color:var(--text-muted); font-size:0.95rem;">Not sure what to pick? <strong style="color:var(--text);">Text us a few photos</strong> and we'll recommend the right service.</p>
-        <a href="tel:+12099882892" style="color:var(--cyan-bright); font-family:var(--font-display); font-weight:600; font-size:1.05rem;">(209) 988-2892</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ HOW IT WORKS ═══════ -->
-  <section class="how-it-works">
-    <div class="section-bg"></div>
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">How It Works</p>
-        <h2 class="section-title">Booked in minutes, done right</h2>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card reveal stagger-1">
-          <div class="step-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-          </div>
-          <p class="step-number">Step 1</p>
-          <h3>Choose a Package</h3>
-          <p>Interior, Exterior, Full Detail, or Coating — pick what fits your ride.</p>
-        </div>
-        <div class="step-card reveal stagger-2">
-          <div class="step-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <p class="step-number">Step 2</p>
-          <h3>Schedule</h3>
-          <p>Pick a date and time that works for you through our online booking.</p>
-        </div>
-        <div class="step-card reveal stagger-3">
-          <div class="step-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <p class="step-number">Step 3</p>
-          <h3>Confirmation</h3>
-          <p>You'll get a confirmation with all the details. We show up on time.</p>
-        </div>
-        <div class="step-card reveal stagger-4">
-          <div class="step-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="step-number">Step 4</p>
-          <h3>Clean &amp; Protected</h3>
-          <p>Your vehicle gets detailed and protected. Drive away looking brand new.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ WHY US ═══════ -->
-  <section class="why-us" id="why">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">Why Cali Auto Wash</p>
-        <h2 class="section-title">The difference is in the detail</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal stagger-1">
-          <div class="why-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <h3>We Come to You</h3>
-          <p>Mobile service across Modesto and surrounding areas. No need to wait at a shop — we work on your schedule.</p>
-        </div>
-        <div class="why-card reveal stagger-2">
-          <div class="why-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h3>Attention to Detail</h3>
-          <p>Every vehicle gets the same meticulous care, from a basic wash to a full ceramic coat. We don't cut corners.</p>
-        </div>
-        <div class="why-card reveal stagger-3">
-          <div class="why-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Premium Products</h3>
-          <p>We use professional-grade products including graphene ceramic coatings for long-lasting protection.</p>
-        </div>
-        <div class="why-card reveal stagger-4">
-          <div class="why-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </div>
-          <h3>Easy Booking &amp; Payment</h3>
-          <p>Book online in seconds. Cashless payment options available for your convenience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ RECENT WORK ═══════ -->
-  <section class="recent-work" id="work">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">Recent Work</p>
-        <h2 class="section-title">Proof is in the shine</h2>
-        <p class="section-sub">Real results from real customers. Every detail matters.</p>
-      </div>
-
-      <div class="work-grid">
-        <div class="work-item featured-work reveal stagger-1">
-          <img src="images/bmw-m3-silver.jpg" alt="Silver BMW M3 — full exterior detail" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Exterior Detail</span>
-            <div class="work-item-title">BMW M3</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-2">
-          <img src="images/m3-mean-front.jpg" alt="Black BMW M3 — murdered out front view" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Full Detail</span>
-            <div class="work-item-title">BMW M3 Murdered Out</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-3">
-          <img src="images/brz-matte-purple.jpg" alt="Matte purple Subaru BRZ — full detail" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Full Detail</span>
-            <div class="work-item-title">Subaru BRZ</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-4">
-          <img src="images/656101795_17932047825232766_7398999776632147101_n.jpg" alt="Black Lexus GX — full exterior detail at sunset" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Full Detail</span>
-            <div class="work-item-title">Lexus GX</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-5">
-          <img src="images/honda-pilot-clean.jpg" alt="White Honda Pilot — full exterior wash" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Exterior Wash</span>
-            <div class="work-item-title">Honda Pilot</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-6">
-          <img src="images/lexus-red-interior.jpg" alt="Lexus IS F Sport — red leather interior detail" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Interior Detail</span>
-            <div class="work-item-title">Lexus IS — Red Interior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal stagger-7">
-          <img src="images/491445420_17890589589232766_3582021276583685688_n.jpg" alt="Blue Dodge Charger 392 — exterior detail" loading="lazy">
-          <div class="work-item-overlay">
-            <span class="work-item-tag">Exterior Detail</span>
-            <div class="work-item-title">Dodge Charger 392</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ BEFORE & AFTER ═══════ -->
-  <section class="before-after" id="results">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">Real Results</p>
-        <h2 class="section-title">Before &amp; After</h2>
-        <p class="section-sub">See the difference a professional detail makes. Real cars, real results.</p>
-      </div>
-      <div class="ba-grid">
-        <div class="ba-pair reveal stagger-1">
-          <div class="ba-label ba-label-before">Before</div>
-          <div class="ba-label ba-label-after">After</div>
-          <div class="ba-images">
-            <img src="images/IMG_1169.jpg" alt="Ford Taurus interior — before detail" class="ba-before" loading="lazy">
-            <img src="images/IMG_1170.jpg" alt="Ford Taurus interior — after detail" class="ba-after" loading="lazy">
-          </div>
-          <div class="ba-caption">Ford Taurus — Interior Detail</div>
-        </div>
-        <div class="ba-pair reveal stagger-2">
-          <div class="ba-label ba-label-before">Before</div>
-          <div class="ba-label ba-label-after">After</div>
-          <div class="ba-images">
-            <img src="images/IMG_1173.jpg" alt="Dodge Durango interior — before detail" class="ba-before" loading="lazy">
-            <img src="images/IMG_1171.jpg" alt="Dodge Durango interior — after detail" class="ba-after" loading="lazy">
-          </div>
-          <div class="ba-caption">Dodge Durango — Interior Detail</div>
-        </div>
-        <div class="ba-pair reveal stagger-3">
-          <div class="ba-label ba-label-before">Before</div>
-          <div class="ba-label ba-label-after">After</div>
-          <div class="ba-images">
-            <img src="images/IMG_1175.jpg" alt="Toyota 4Runner interior — before detail" class="ba-before" loading="lazy">
-            <img src="images/IMG_1176.jpg" alt="Toyota 4Runner interior — after detail" class="ba-after" loading="lazy">
-          </div>
-          <div class="ba-caption">Toyota 4Runner — Interior Detail</div>
-        </div>
-        <div class="ba-pair reveal stagger-4">
-          <div class="ba-label ba-label-before">Before</div>
-          <div class="ba-label ba-label-after">After</div>
-          <div class="ba-images">
-            <img src="images/IMG_1178.jpg" alt="Infiniti Q50 exterior — before wash" class="ba-before" loading="lazy">
-            <img src="images/IMG_1179.jpg" alt="Infiniti Q50 exterior — after wash" class="ba-after" loading="lazy">
-          </div>
-          <div class="ba-caption">Infiniti Q50 — Exterior Detail</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ FAQ ═══════ -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">FAQ</p>
-        <h2 class="section-title">Common questions</h2>
-      </div>
-      <div class="faq-grid">
-        <div class="faq-item reveal stagger-1">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>How long does a detail take?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Most services take 1–3 hours depending on the package and vehicle condition. A basic exterior wash is about 45 minutes, while ceramic coating can take 4–6 hours. We'll give you a time estimate when you book.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-2">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>What if it rains on my appointment day?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>We'll reach out to reschedule at no charge. If it starts raining mid-service, we'll work with you to finish at a covered area or reschedule the remaining work.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-3">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>Do I need to provide water or power?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Nope — we bring everything. Our mobile setup includes our own water supply, power, and all professional-grade products. Just have your vehicle accessible and we handle the rest.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-4">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>Can you come to my work or apartment?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Absolutely. We detail at homes, offices, apartments — wherever your car is parked. Just make sure there's enough space around the vehicle for us to work.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-5">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>How long does the ceramic coating last?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Our graphene ceramic coating is rated for 7 years of protection. It creates a hydrophobic layer that repels water, dirt, and UV damage — keeping your paint looking fresh with minimal maintenance.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-6">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            <span>What forms of payment do you accept?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>We accept all major credit/debit cards, Apple Pay, Google Pay, Cash App, and cash. Payment is collected after the service is complete — you only pay when you're happy.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ CONTACT ═══════ -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-center reveal">
-        <p class="section-label">Get in Touch</p>
-        <h2 class="section-title">Ready for a fresh ride?</h2>
-        <p class="section-sub">Reach out to schedule your detail or ask any questions. We typically respond within the hour.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info reveal-left stagger-1">
-          <h3>Contact Info</h3>
-
-          <a href="tel:+12099882892" class="contact-link">
-            <div class="contact-link-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Phone</div>
-              <div class="contact-link-value">(209) 988-2892</div>
-            </div>
-          </a>
-
-          <a href="mailto:andrewcao20@gmail.com" class="contact-link">
-            <div class="contact-link-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Email</div>
-              <div class="contact-link-value">andrewcao20@gmail.com</div>
-            </div>
-          </a>
-
-          <a href="https://www.instagram.com/caliautowash" target="_blank" rel="noopener" class="contact-link">
-            <div class="contact-link-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Instagram</div>
-              <div class="contact-link-value">@caliautowash</div>
-            </div>
-          </a>
-
-          <div class="contact-link">
-            <div class="contact-link-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Address</div>
-              <div class="contact-link-value">1010 10th Street, Modesto, CA 95354</div>
-            </div>
-          </div>
-
-          <div class="contact-link" style="border-bottom:none;">
-            <div class="contact-link-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Hours</div>
-              <div class="contact-link-value">Mon–Sat: 9AM–5PM &bull; Sun: Closed <span id="open-status"></span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-booking reveal-right stagger-2">
-          <h3>Schedule Your Detail</h3>
-          <p>Pick a service and time — book right here without leaving the page.</p>
-          <div class="booking-iframe-wrap">
-            <iframe
-              src="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services"
-              title="Book an appointment with Cali Auto Wash"
-              loading="lazy">
-            </iframe>
-          </div>
-          <div class="booking-fallback">
-            <a href="https://book.squareup.com/appointments/swme78f94upqkd/location/LHVCHPW4RR8RJ/services" target="_blank" rel="noopener">
-              Open booking in new tab &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer class="footer">
-    <div class="container">
-      <img src="images/logo.png" alt="Cali Auto Wash" class="footer-logo">
-      <div class="footer-links">
-        <a href="#pricing">Pricing</a>
-        <a href="#why">Why Us</a>
-        <a href="#work">Our Work</a>
-        <a href="#results">Results</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.instagram.com/caliautowash" target="_blank" rel="noopener">Instagram</a>
-      </div>
-      <p>&copy; 2026 Cali Auto Wash. All rights reserved. Modesto, CA.</p>
-    </div>
-  </footer>
-
-  <!-- ═══════ STICKY MOBILE CTA ═══════ -->
-  <div class="mobile-cta" aria-label="Call to action">
-    <a href="tel:+12099882892">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Call (209) 988-2892
-    </a>
-  </div>
-
-  <!-- ═══════ SCRIPTS ═══════ -->
-  <script>
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // Subtle hero parallax — GPU-accelerated with rAF
-    const heroBg = document.querySelector('.hero-bg');
-    if (heroBg) {
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            const y = window.scrollY;
-            if (y < window.innerHeight * 1.2) {
-              heroBg.style.transform = 'translate3d(0,' + (y * 0.25) + 'px,0)';
-            }
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-    }
-
-    // Scroll-triggered reveals — supports .reveal, .reveal-scale, .reveal-left, .reveal-right
-    const allReveals = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-    allReveals.forEach(el => revealObserver.observe(el));
-
-    // Floating particles
-    (function createParticles() {
-      const container = document.getElementById('particles');
-      if (!container) return;
-      const count = window.innerWidth < 768 ? 14 : 28;
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (6 + Math.random() * 10) + 's';
-        p.style.animationDelay = (Math.random() * 12) + 's';
-        const size = (1.5 + Math.random() * 3);
-        p.style.width = p.style.height = size + 'px';
-        p.style.opacity = 0;
-        container.appendChild(p);
-      }
-    })();
-
-    // Open/Closed status indicator
-    (function setOpenStatus() {
-      const el = document.getElementById('open-status');
-      if (!el) return;
-      const now = new Date();
-      const day = now.getDay(); // 0=Sun
-      const hour = now.getHours();
-      const isOpen = day >= 1 && day <= 6 && hour >= 9 && hour < 17;
-      el.innerHTML = '<span class="open-badge ' + (isOpen ? 'is-open' : 'is-closed') + '">' +
-        '<span class="open-badge-dot"></span>' +
-        (isOpen ? 'Open Now' : 'Closed') +
-        '</span>';
-    })();
-  </script>
+<script type="text/babel" src="src/shared.jsx?v=23"></script>
+<script type="text/babel" src="src/hero.jsx?v=23"></script>
+<script type="text/babel" src="src/services.jsx?v=23"></script>
+<script type="text/babel" src="src/process.jsx?v=23"></script>
+<script type="text/babel" src="src/gallery.jsx?v=23"></script>
+<script type="text/babel" src="src/booking.jsx?v=23"></script>
+<script type="text/babel" src="src/faq_contact.jsx?v=23"></script>
+<script type="text/babel" src="src/tweaks.jsx?v=23"></script>
+<script type="text/babel" src="src/app.jsx?v=23"></script>
 
 </body>
 </html>
