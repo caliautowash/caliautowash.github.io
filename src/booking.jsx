@@ -40,6 +40,24 @@ function Booking() {
   const next = () => setStep(s => Math.min(s + 1, 4));
   const prev = () => setStep(s => Math.max(s - 1, 0));
 
+  const bookingSMS = (() => {
+    const dayName = DAYS[data.day];
+    const h = parseInt(data.slot.split(':')[0], 10);
+    const timeLabel = h < 12 ? `${h}:00 AM` : h === 12 ? '12:00 PM' : `${h - 12}:00 PM`;
+    const addr = [data.address, data.city, data.zip].filter(Boolean).join(', ');
+    const body = [
+      'New booking — Cali Auto Wash',
+      '',
+      `Name: ${data.name || '(not provided)'}`,
+      `Service: ${svc?.name} — $${svc?.price || 0}`,
+      `Vehicle: ${veh?.label}${veh?.surcharge ? ` (+$${veh.surcharge})` : ''}`,
+      `When: ${dayName} · ${timeLabel}`,
+      `Where: ${addr || '(to provide)'}`,
+      `Total: $${total}`,
+    ].join('\n');
+    return `sms:${PHONE_TEL}?&body=${encodeURIComponent(body)}`;
+  })();
+
   return (
     <section id="book" ref={ref} className="reveal" style={{
       padding: '8rem 0',
@@ -173,10 +191,10 @@ function Booking() {
                     Continue <Icon.arrow />
                   </button>
                 ) : (
-                  <button onClick={() => alert('Booked! (Demo) We would text you a confirmation.')} className="btn btn-accent" style={{ padding: '0.85rem 1.5rem' }}>
+                  <a href={bookingSMS} className="btn btn-accent" style={{ padding: '0.85rem 1.5rem' }}>
                     <span className="shine" aria-hidden />
                     Confirm booking <Icon.check />
-                  </button>
+                  </a>
                 )}
               </div>
             </div>
