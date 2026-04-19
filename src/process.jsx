@@ -84,7 +84,7 @@ function Process() {
           gap: '1rem',
         }}>
           <div className="num-label">
-            AVG. TURNAROUND · 1–4 HOURS · WED · THU · SAT · 9AM–4PM
+            AVG. TURNAROUND · 1–4 HOURS
           </div>
           <a href="#book" className="btn btn-accent">
             <span className="shine" aria-hidden />
