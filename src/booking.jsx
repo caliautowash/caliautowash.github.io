@@ -1,5 +1,10 @@
 /* Booking — interactive multi-step preview */
 
+// Google Apps Script webhook — every Confirm tap appends a row to the
+// shared commission-tracking sheet (timestamp, ref, service, vehicle,
+// time, address, total). Fire-and-forget; does not block the SMS.
+const BOOKING_LOG_URL = 'https://script.google.com/macros/s/AKfycbzDGzb44Uhv0aUOzOz0nIbnZigOMXHZudpMzTz9JFGwqu64RIzQRMAzDdVwkvfKI0ZAxQ/exec';
+
 const BOOKING_SERVICES = [
   { id: 'wash', name: 'Exterior Wash', price: 40, time: '45m', desc: 'Hand wash, wheels, windows' },
   { id: 'interior', name: 'Standard Interior', price: 60, time: '1h', desc: 'Vacuum, dust, wipe-down' },
@@ -49,25 +54,53 @@ function Booking() {
     return `CAW-${s}`;
   }, []);
 
-  const bookingSMS = (() => {
+  // Shared booking details — used for both the SMS body and the sheet log.
+  const bookingDetails = (() => {
     const dayName = DAYS[data.day];
     const h = parseInt(data.slot.split(':')[0], 10);
     const timeLabel = h < 12 ? `${h}:00 AM` : h === 12 ? '12:00 PM' : `${h - 12}:00 PM`;
     const addr = [data.address, data.city, data.zip].filter(Boolean).join(', ');
+    return {
+      ref: refCode,
+      name: data.name || '(not provided)',
+      service: svc?.name ? `${svc.name} — $${svc.price || 0}` : '',
+      vehicle: veh?.label + (veh?.surcharge ? ` (+$${veh.surcharge})` : ''),
+      when: `${dayName} · ${timeLabel}`,
+      where: addr || '(to provide)',
+      total,
+    };
+  })();
+
+  const bookingSMS = (() => {
     const body = [
       'Hi! I\'d like to book a detail.',
       '',
-      `Name: ${data.name || '(not provided)'}`,
-      `Service: ${svc?.name} — $${svc?.price || 0}`,
-      `Vehicle: ${veh?.label}${veh?.surcharge ? ` (+$${veh.surcharge})` : ''}`,
-      `When: ${dayName} · ${timeLabel}`,
-      `Where: ${addr || '(to provide)'}`,
-      `Total: $${total}`,
+      `Name: ${bookingDetails.name}`,
+      `Service: ${bookingDetails.service}`,
+      `Vehicle: ${bookingDetails.vehicle}`,
+      `When: ${bookingDetails.when}`,
+      `Where: ${bookingDetails.where}`,
+      `Total: $${bookingDetails.total}`,
       '',
       `Booking ID: ${refCode}`,
     ].join('\n');
     return `sms:${PHONE_TEL}?&body=${encodeURIComponent(body)}`;
   })();
+
+  // Fire-and-forget POST to the Google Sheet webhook. Uses `text/plain` to
+  // dodge the CORS preflight that Apps Script endpoints don't answer.
+  const logBookingToSheet = () => {
+    if (!BOOKING_LOG_URL) return;
+    try {
+      fetch(BOOKING_LOG_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(bookingDetails),
+        keepalive: true, // survive navigation away (sms: link)
+      }).catch(() => {});
+    } catch (_) { /* never block the SMS flow */ }
+  };
 
   return (
     <section id="book" ref={ref} className="reveal" style={{
@@ -207,6 +240,7 @@ function Booking() {
                     className="btn btn-accent"
                     style={{ padding: '0.85rem 1.5rem' }}
                     onClick={() => {
+                      logBookingToSheet();
                       if (typeof window.gtag === 'function') {
                         // Use GA4 standard `value` + `currency` so total is
                         // auto-aggregated as revenue in reports / Looker.
