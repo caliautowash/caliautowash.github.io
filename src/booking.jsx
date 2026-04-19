@@ -3,7 +3,7 @@
 // Google Apps Script webhook — every Confirm tap appends a row to the
 // shared commission-tracking sheet (timestamp, ref, service, vehicle,
 // time, address, total). Fire-and-forget; does not block the SMS.
-const BOOKING_LOG_URL = 'https://script.google.com/macros/s/AKfycbzDGzb44Uhv0aUOzOz0nIbnZigOMXHZudpMzTz9JFGwqu64RIzQRMAzDdVwkvfKI0ZAxQ/exec';
+const BOOKING_LOG_URL = 'https://script.google.com/macros/s/AKfycbwP728WH1IEXWlMIZceCEfjN-69GbBWdgyqNabnhGwL9WZ0z1iP_r4fqQeku-iwC5Udtg/exec';
 
 const BOOKING_SERVICES = [
   { id: 'wash', name: 'Exterior Wash', price: 40, time: '45m', desc: 'Hand wash, wheels, windows' },
