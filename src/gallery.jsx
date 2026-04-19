@@ -10,10 +10,10 @@ const WORKS = [
 ];
 
 const BA = [
-  { caption: 'Ford Taurus · interior steam extraction', before: 'images/ford-taurus-interior-before.jpg', after: 'images/ford-taurus-interior-after.jpg' },
-  { caption: 'Infiniti Q50 · exterior wash + decon', before: 'images/infiniti-q50-before.jpg', after: 'images/infiniti-q50-after.jpg' },
-  { caption: 'Dodge Durango · cabin deep clean', before: 'images/dodge-durango-interior-before.jpg', after: 'images/dodge-durango-interior-after.jpg' },
-  { caption: '4Runner · full interior detail', before: 'images/toyota-4runner-interior-before.jpg', after: 'images/toyota-4runner-interior-after.jpg' },
+  { caption: 'Ford Taurus · interior steam extraction', before: 'images/ford-taurus-interior-after.jpg', after: 'images/ford-taurus-interior-before.jpg' },
+  { caption: 'Infiniti Q50 · exterior wash + decon', before: 'images/infiniti-q50-after.jpg', after: 'images/infiniti-q50-before.jpg' },
+  { caption: 'Dodge Durango · cabin deep clean', before: 'images/dodge-durango-interior-after.jpg', after: 'images/dodge-durango-interior-before.jpg' },
+  { caption: '4Runner · full interior detail', before: 'images/toyota-4runner-interior-after.jpg', after: 'images/toyota-4runner-interior-before.jpg' },
 ];
 
 function Gallery() {
