@@ -191,7 +191,20 @@ function Booking() {
                     Continue <Icon.arrow />
                   </button>
                 ) : (
-                  <a href={bookingSMS} className="btn btn-accent" style={{ padding: '0.85rem 1.5rem' }}>
+                  <a
+                    href={bookingSMS}
+                    className="btn btn-accent"
+                    style={{ padding: '0.85rem 1.5rem' }}
+                    onClick={() => {
+                      if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'booking_submitted', {
+                          service: svc?.name,
+                          vehicle: veh?.label,
+                          total: total,
+                        });
+                      }
+                    }}
+                  >
                     <span className="shine" aria-hidden />
                     Confirm booking <Icon.check />
                   </a>
