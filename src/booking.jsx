@@ -40,13 +40,22 @@ function Booking() {
   const next = () => setStep(s => Math.min(s + 1, 4));
   const prev = () => setStep(s => Math.max(s - 1, 0));
 
+  // Short per-session ref code so site-originated bookings are easy to
+  // identify in Cali's message history later (supports commission tracking).
+  const refCode = useMemo(() => {
+    const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no ambiguous chars
+    let s = '';
+    for (let i = 0; i < 4; i++) s += alphabet[Math.floor(Math.random() * alphabet.length)];
+    return `CAW-${s}`;
+  }, []);
+
   const bookingSMS = (() => {
     const dayName = DAYS[data.day];
     const h = parseInt(data.slot.split(':')[0], 10);
     const timeLabel = h < 12 ? `${h}:00 AM` : h === 12 ? '12:00 PM' : `${h - 12}:00 PM`;
     const addr = [data.address, data.city, data.zip].filter(Boolean).join(', ');
     const body = [
-      'New booking — Cali Auto Wash',
+      `New booking — Cali Auto Wash (${refCode})`,
       '',
       `Name: ${data.name || '(not provided)'}`,
       `Service: ${svc?.name} — $${svc?.price || 0}`,
@@ -54,6 +63,8 @@ function Booking() {
       `When: ${dayName} · ${timeLabel}`,
       `Where: ${addr || '(to provide)'}`,
       `Total: $${total}`,
+      '',
+      `Source: caliautowash.com · Ref: ${refCode}`,
     ].join('\n');
     return `sms:${PHONE_TEL}?&body=${encodeURIComponent(body)}`;
   })();
@@ -197,10 +208,14 @@ function Booking() {
                     style={{ padding: '0.85rem 1.5rem' }}
                     onClick={() => {
                       if (typeof window.gtag === 'function') {
+                        // Use GA4 standard `value` + `currency` so total is
+                        // auto-aggregated as revenue in reports / Looker.
                         window.gtag('event', 'booking_submitted', {
+                          value: total,
+                          currency: 'USD',
                           service: svc?.name,
                           vehicle: veh?.label,
-                          total: total,
+                          ref_code: refCode,
                         });
                       }
                     }}
