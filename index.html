@@ -31,7 +31,18 @@
     "showBadges": true,
     "denseCards": false
   }/*EDITMODE-END*/;
+
+  // --- Stripe (Tier 4 embedded checkout) ---
+  // Publishable keys are designed to be public. The matching secret key lives
+  // only in the Cloudflare Worker (see worker/wrangler.toml).
+  window.STRIPE_PUBLISHABLE_KEY = 'pk_test_51TO0r31zhBHeRMuNO8pDXSngJi3HF51cmHMZqmlNPSowHuShYndwthvvPhcX6lth2Erxz0Kz8gD0XVxlEoQZfSuB00ZEMlIr9B';
+  // Replace with your deployed Worker URL, e.g. 'https://cali-auto-wash-payments.<subdomain>.workers.dev'
+  window.STRIPE_WORKER_URL = '';
+  // Feature flag: 'sms' keeps the original SMS flow; 'stripe' enables embedded checkout.
+  // Leave on 'sms' until Worker is deployed + Stripe is test-passed end-to-end.
+  window.PAYMENT_FLOW = 'sms';
 </script>
+<script src="https://js.stripe.com/v3/"></script>
 
 <style>
   :root {
@@ -309,7 +320,8 @@
 <script type="text/babel" src="src/services.jsx?v=23"></script>
 <script type="text/babel" src="src/process.jsx?v=23"></script>
 <script type="text/babel" src="src/gallery.jsx?v=23"></script>
-<script type="text/babel" src="src/booking.jsx?v=24"></script>
+<script type="text/babel" src="src/payment.jsx?v=1"></script>
+<script type="text/babel" src="src/booking.jsx?v=25"></script>
 <script type="text/babel" src="src/faq_contact.jsx?v=23"></script>
 <script type="text/babel" src="src/tweaks.jsx?v=23"></script>
 <script type="text/babel" src="src/app.jsx?v=23"></script>

@@ -42,7 +42,15 @@ function Booking() {
   const veh = VEHICLE_TYPES.find(v => v.id === data.vehicle);
   const total = (svc?.price || 0) + (veh?.surcharge || 0);
 
-  const next = () => setStep(s => Math.min(s + 1, 4));
+  // Feature flag — Tier 4 Stripe embedded checkout. Falls back to SMS if the
+  // Worker URL isn't configured yet.
+  const useStripe = window.PAYMENT_FLOW === 'stripe'
+    && !!window.STRIPE_PUBLISHABLE_KEY
+    && !!window.STRIPE_WORKER_URL;
+  const maxStep = useStripe ? 5 : 4;
+  const stepCount = useStripe ? 6 : 5;
+
+  const next = () => setStep(s => Math.min(s + 1, maxStep));
   const prev = () => setStep(s => Math.max(s - 1, 0));
 
   // Short per-session ref code so site-originated bookings are easy to
@@ -189,9 +197,9 @@ function Booking() {
               borderBottom: '1px solid var(--rule)',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             }}>
-              <div className="num-label">Step {String(step+1).padStart(2,'0')} / 05</div>
+              <div className="num-label">Step {String(step+1).padStart(2,'0')} / {String(stepCount).padStart(2,'0')}</div>
               <div style={{ display: 'flex', gap: 4 }}>
-                {[0,1,2,3,4].map(i => (
+                {Array.from({ length: stepCount }, (_, i) => (
                   <div key={i} style={{
                     width: i === step ? 24 : 8, height: 4,
                     background: i <= step ? 'var(--terracotta)' : 'var(--rule)',
@@ -208,6 +216,17 @@ function Booking() {
               {step === 2 && <StepAddress data={data} setData={setData} />}
               {step === 3 && <StepTime data={data} setData={setData} />}
               {step === 4 && <StepConfirm data={data} setData={setData} svc={svc} veh={veh} total={total} />}
+              {step === 5 && useStripe && typeof window.StepPayment === 'function' && (
+                <window.StepPayment
+                  data={data}
+                  setData={setData}
+                  svc={svc}
+                  veh={veh}
+                  total={total}
+                  refCode={refCode}
+                  bookingDetails={bookingDetails}
+                />
+              )}
             </div>
 
             {/* Footer with totals + nav */}
@@ -230,11 +249,11 @@ function Booking() {
                     Back
                   </button>
                 )}
-                {step < 4 ? (
+                {step < maxStep ? (
                   <button onClick={next} className="btn btn-primary" style={{ padding: '0.85rem 1.5rem' }}>
-                    Continue <Icon.arrow />
+                    {useStripe && step === 4 ? <>Continue to payment <Icon.arrow /></> : <>Continue <Icon.arrow /></>}
                   </button>
-                ) : (
+                ) : useStripe ? null /* StepPayment renders its own Pay button */ : (
                   <a
                     href={bookingSMS}
                     className="btn btn-accent"
