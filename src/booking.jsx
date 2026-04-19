@@ -55,7 +55,7 @@ function Booking() {
     const timeLabel = h < 12 ? `${h}:00 AM` : h === 12 ? '12:00 PM' : `${h - 12}:00 PM`;
     const addr = [data.address, data.city, data.zip].filter(Boolean).join(', ');
     const body = [
-      `New booking — Cali Auto Wash (${refCode})`,
+      'Hi! I\'d like to book a detail.',
       '',
       `Name: ${data.name || '(not provided)'}`,
       `Service: ${svc?.name} — $${svc?.price || 0}`,
@@ -64,7 +64,7 @@ function Booking() {
       `Where: ${addr || '(to provide)'}`,
       `Total: $${total}`,
       '',
-      `Source: caliautowash.com · Ref: ${refCode}`,
+      `Booking ID: ${refCode}`,
     ].join('\n');
     return `sms:${PHONE_TEL}?&body=${encodeURIComponent(body)}`;
   })();
