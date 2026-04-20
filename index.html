@@ -32,15 +32,39 @@
     "denseCards": false
   }/*EDITMODE-END*/;
 
-  // --- Stripe (Tier 4 embedded checkout) ---
-  // Publishable keys are designed to be public. The matching secret key lives
-  // only in the Cloudflare Worker (see worker/wrangler.toml).
-  window.STRIPE_PUBLISHABLE_KEY = 'pk_test_51TO0r31zhBHeRMuNO8pDXSngJi3HF51cmHMZqmlNPSowHuShYndwthvvPhcX6lth2Erxz0Kz8gD0XVxlEoQZfSuB00ZEMlIr9B';
-  // Replace with your deployed Worker URL, e.g. 'https://cali-auto-wash-payments.<subdomain>.workers.dev'
-  window.STRIPE_WORKER_URL = '';
-  // Feature flag: 'sms' keeps the original SMS flow; 'stripe' enables embedded checkout.
-  // Leave on 'sms' until Worker is deployed + Stripe is test-passed end-to-end.
-  window.PAYMENT_FLOW = 'sms';
+  // --- Stripe (Tier 4 embedded checkout) ---------------------------------
+  // Publishable keys are designed to be public; the matching secret key lives
+  // only in the Cloudflare Worker (set via `wrangler secret put`).
+  //
+  // GO-LIVE CHECKLIST (in order):
+  //   1. Replace STRIPE_PUBLISHABLE_KEY with your live key (pk_live_...)
+  //   2. Set STRIPE_WORKER_URL to the deployed Worker URL
+  //   3. Flip PAYMENT_FLOW from 'sms' to 'stripe'
+  //   4. (Worker side) wrangler secret put STRIPE_SECRET_KEY        sk_live_...
+  //   5. (Worker side) wrangler secret put STRIPE_WEBHOOK_SECRET    whsec_...
+  //   6. (Worker side) wrangler secret put CALI_STRIPE_ACCOUNT_ID   acct_...
+  //
+  // The scripts/go-live.sh helper does all six in one shot — see worker/README.md.
+  // Mirror any change in this block to docs/index.html (GitHub Pages serves docs/).
+  window.STRIPE_PUBLISHABLE_KEY = 'pk_live_51TO0qXP3OavcyUFK263lAyBBnkVUPxP083TB6Pvqy1xsM8XFneBnQOAOKD467gRbE4Jcx9lM56vc1dyCqnSHmreB00diSUScYW';
+  window.STRIPE_WORKER_URL      = 'https://cali-auto-wash-payments.demetriusgonzalez161.workers.dev';
+  window.PAYMENT_FLOW           = 'stripe';   // 'sms' | 'stripe'
+
+  // --- Google Maps (address autocomplete in booking flow) ----------------
+  // Maps JavaScript keys are designed to be public — but you MUST restrict
+  // this key in Google Cloud Console → APIs & Services → Credentials → click
+  // the key → "Application restrictions: HTTP referrers" → add:
+  //   https://caliautowash.com/*
+  //   https://caliautowash.github.io/*
+  //   http://localhost:*/*
+  // Otherwise anyone who finds this key can run up your Google bill.
+  window.GOOGLE_MAPS_API_KEY = 'AIzaSyBwhBIuPXCuVgahdkyHszU2BPE7f2xapoQ';
+  if (window.GOOGLE_MAPS_API_KEY && window.GOOGLE_MAPS_API_KEY !== 'YOUR_GOOGLE_MAPS_API_KEY') {
+    const s = document.createElement('script');
+    s.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_API_KEY}&libraries=places&loading=async`;
+    s.async = true;
+    document.head.appendChild(s);
+  }
 </script>
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -320,8 +344,8 @@
 <script type="text/babel" src="src/services.jsx?v=23"></script>
 <script type="text/babel" src="src/process.jsx?v=23"></script>
 <script type="text/babel" src="src/gallery.jsx?v=23"></script>
-<script type="text/babel" src="src/payment.jsx?v=1"></script>
-<script type="text/babel" src="src/booking.jsx?v=25"></script>
+<script type="text/babel" src="src/payment.jsx?v=3"></script>
+<script type="text/babel" src="src/booking.jsx?v=32"></script>
 <script type="text/babel" src="src/faq_contact.jsx?v=23"></script>
 <script type="text/babel" src="src/tweaks.jsx?v=23"></script>
 <script type="text/babel" src="src/app.jsx?v=23"></script>
