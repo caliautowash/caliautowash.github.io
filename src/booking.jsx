@@ -57,13 +57,12 @@ const SERVICE_LOCATIONS = [
   { id: 'dropoff', label: 'You come to us',  desc: "Drop off at Cali's shop" },
 ];
 
-// TODO: replace with Cali Auto Wash's actual shop address (street + ZIP).
 // Used in the drop-off booking flow and in the SMS / commission-log payload.
 const CALI_SHOP = {
-  street: '[Cali Auto Wash shop address — UPDATE ME]',
+  street: 'Independence Way',
   city:   'Modesto',
   state:  'CA',
-  zip:    '95350',
+  zip:    '95354',
 };
 
 // Service-area ZIPs (Stanislaus County and immediate neighbors all start with 95).
