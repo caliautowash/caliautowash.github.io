@@ -123,16 +123,18 @@ function StepPayment({ data, setData, svc, veh, subtotal, cardFee, total, refCod
     };
   }, []);
 
-  // 2. Mount the PaymentElement once Elements is ready.
+  // 2. Mount the PaymentElement once Elements is ready. Keep it mounted across
+  // status transitions — Apple Pay's native sheet is launched via the mounted
+  // iframe, so unmounting on `processing` (as a status-in-deps version did)
+  // causes confirmPayment to hang indefinitely when the user picks a wallet.
   useEffect(() => {
-    if (elements && mountRef.current && status === 'ready') {
-      const paymentEl = elements.create('payment', {
-        layout: { type: 'tabs', defaultCollapsed: false },
-      });
-      paymentEl.mount(mountRef.current);
-      return () => paymentEl.unmount();
-    }
-  }, [elements, status]);
+    if (!elements || !mountRef.current) return;
+    const paymentEl = elements.create('payment', {
+      layout: { type: 'tabs', defaultCollapsed: false },
+    });
+    paymentEl.mount(mountRef.current);
+    return () => paymentEl.unmount();
+  }, [elements]);
 
   const handlePay = async () => {
     if (!stripe || !elements) return;
