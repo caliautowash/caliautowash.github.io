@@ -11,7 +11,7 @@ const BOOKING_SERVICES = [
   { id: 'full', name: 'Standard Full Detail', price: 75, time: '1.5h', desc: 'Interior + exterior', popular: true },
   { id: 'decon', name: 'Decontamination Exterior', price: 100, time: '2h', desc: 'Clay bar + iron fallout' },
   { id: 'deep', name: 'Deep Clean Interior', price: 175, time: '3h', desc: 'Steam + extraction' },
-  { id: 'ceramic', name: 'Paint Correction + 7-yr Graphene', price: 300, time: '6–8h', desc: 'Full correction + coating' },
+  { id: 'ceramic', name: 'One-Step Correction + 7-yr Graphene', price: 500, time: '6–8h', desc: 'Full one-step correction + coating' },
 ];
 
 const VEHICLE_TYPES = [

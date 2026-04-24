@@ -35,9 +35,9 @@ const SERVICES = [
         features: ['Full exterior hand wash','Interior vacuum & wipe','Windows inside & out','Dressing on tires'],
         featured: true,
       },
-      { name: 'Paint Correction + 7-yr Graphene', price: 300, time: '6-8 hr',
-        sub: 'Flagship — ceramic coating',
-        features: ['Full paint correction','7-year graphene coating','Hydrophobic finish','Gloss & depth enhancement'],
+      { name: 'One-Step Correction + 7-yr Graphene', price: 500, time: '6-8 hr',
+        sub: 'Flagship — full one-step paint correction',
+        features: ['Full one-step paint correction','7-year graphene coating','Hydrophobic finish','Gloss & depth enhancement'],
       },
     ],
   },
@@ -77,7 +77,38 @@ function Services() {
               A simple menu. Flat pricing. No hidden fees, no upsells in the driveway.
               Pick the package, we bring the water, soap, tools, and the elbow grease.
             </p>
-            <div className="num-label">ADD $20 — LARGE SUV &amp; TRUCKS · CALL FOR FLEET PRICING</div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.85rem',
+              padding: '0.9rem 1.35rem 0.9rem 1.1rem',
+              background: 'linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%)',
+              border: '1px solid color-mix(in oklch, var(--terracotta-deep) 60%, transparent)',
+              borderRadius: 999,
+              color: 'var(--cream)',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.92rem',
+              letterSpacing: '-0.005em',
+              fontWeight: 500,
+              lineHeight: 1.3,
+              boxShadow: '0 12px 28px -14px color-mix(in oklch, var(--terracotta-deep) 80%, transparent), inset 0 1px 0 color-mix(in oklch, white 18%, transparent)',
+            }}>
+              <span aria-hidden style={{
+                width: 28, height: 28, borderRadius: '50%',
+                background: 'color-mix(in oklch, white 25%, transparent)',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                flexShrink: 0,
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.05rem',
+                fontStyle: 'italic',
+                fontWeight: 500,
+              }}>i</span>
+              <span>
+                <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500, marginRight: '0.35rem' }}>Note —</span>
+                pricing varies by vehicle size &amp; condition.{' '}
+                <span style={{ opacity: 0.82, fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.04em', textTransform: 'uppercase', marginLeft: '0.15rem' }}>Call for fleet</span>
+              </span>
+            </div>
           </div>
         </div>
 
